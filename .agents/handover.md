@@ -19,6 +19,10 @@
 
 ## Current Focus
 
+### プロジェクト境界（2026-07-31確定）
+
+Ichimokuは独立したタスク管理アプリ。ActはIchimokuに内包されず、人間と同様にIchimokuをToolとして利用する。全体統治はGrimoire、実装・詳細仕様の正本は本リポジトリ。
+
 ### ⚠ 最重要：実 DB 未適用（2026-06-21 現在）
 
 コードは全機能実装済みだが、**Supabase には一切適用していない**。ローカルは `npm run dev` のプレビューモック（`IS_PREVIEW`）で動作確認中（現在 `http://localhost:5175/Ichimoku/` でサーバー起動中）。
@@ -92,7 +96,7 @@
 
 | 項目               | 内容                                                                                                              |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| **リポジトリ**     | `https://github.com/shida-product/Ichimoku.git`（branch: `main`）                                                 |
+| **リポジトリ**     | `https://github.com/shida-product/Ichimoku.git`（public、branch: `main`）                                         |
 | **仕様正本**       | `task-board-spec-v1.md`（v1.5）                                                                                   |
 | **操作モデル正本** | `prototype-overlay.html`                                                                                          |
 | **デザイン正本**   | `src/index.css`（Google Blue 配色・セマンティックトークン必須・生の hex 禁止）                                    |
@@ -101,6 +105,8 @@
 | **認証/DB**        | Supabase Auth + Postgres RLS（`using (auth.uid() = owner_id)`）+ スキーマ `ichimoku`                              |
 | **カレンダー方式** | 自作 UI + Google Calendar API 双方向（`calendar.events` scope）。OAuth は Supabase Auth Google プロバイダに相乗り |
 | **スキーマ隔離**   | `ichimoku` スキーマ。`public` への GRANT 禁止。`config push` 禁止                                                 |
+| **Actとの境界**    | Ichimokuは独立アプリ。Actは外部の専属秘書型AIとして、人間と同じく許可されたTool経由で利用                         |
+| **全体統治**       | プロジェクト間の関係・採用技術・共通原則はProject Grimoire、実装と詳細仕様は本リポジトリ                          |
 
 ### UI 設計原則（整理を生まない）
 
