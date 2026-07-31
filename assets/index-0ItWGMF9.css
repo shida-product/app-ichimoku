@@ -4,14 +4,14 @@
   font-style: normal;
   font-display: swap;
   font-weight: 500;
-  src: url(/Ichimoku/assets/zen-old-mincho-latin-500-normal-t7_mINHy.woff2) format('woff2'), url(/Ichimoku/assets/zen-old-mincho-latin-500-normal-3oS3TTaq.woff) format('woff');
+  src: url(/app-ichimoku/assets/zen-old-mincho-latin-500-normal-t7_mINHy.woff2) format('woff2'), url(/app-ichimoku/assets/zen-old-mincho-latin-500-normal-3oS3TTaq.woff) format('woff');
 }/* zen-old-mincho-latin-700-normal */
 @font-face {
   font-family: 'Zen Old Mincho';
   font-style: normal;
   font-display: swap;
   font-weight: 700;
-  src: url(/Ichimoku/assets/zen-old-mincho-latin-700-normal-BxCta6jg.woff2) format('woff2'), url(/Ichimoku/assets/zen-old-mincho-latin-700-normal-B8XWAIv0.woff) format('woff');
+  src: url(/app-ichimoku/assets/zen-old-mincho-latin-700-normal-BxCta6jg.woff2) format('woff2'), url(/app-ichimoku/assets/zen-old-mincho-latin-700-normal-B8XWAIv0.woff) format('woff');
 }/*! tailwindcss v4.3.1 | MIT License | https://tailwindcss.com */
 @layer properties {
   @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {

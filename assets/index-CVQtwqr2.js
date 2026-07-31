@@ -33044,7 +33044,7 @@ var AuthClient = GoTrueClient;
 //#region \0vite/preload-helper.js
 var scriptRel = "modulepreload";
 var assetsURL = function(dep) {
-	return "/Ichimoku/" + dep;
+	return "/app-ichimoku/" + dep;
 };
 var seen = {};
 var __vitePreload = function preload(baseModule, deps, importerUrl) {
