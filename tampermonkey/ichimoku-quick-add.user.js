@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Ichimoku クイック追加（端タブ）
-// @namespace    https://github.com/shida-product/Ichimoku
+// @namespace    https://github.com/shida-product/app-ichimoku
 // @version      0.1.0
 // @description  どのサイトからでも、画面端の小さなタブから Ichimoku にタスクを素早く追加する。普段は控えめな細い帯。クリックで追加パネル、上下ドラッグで移動、左右端へ吸着（位置は記憶）。
 // @author       Ichimoku

@@ -9,6 +9,7 @@
 
 Ichimokuは独立したタスク管理アプリです。AIエージェントのActそのものではなく、人間とActの双方が利用できます。
 
+- リポジトリ名は、実体がアプリであることを示す`app-ichimoku`
 - 人間はActを介さず、Ichimokuを直接操作できる
 - ActはGoogle Workspace等と並ぶToolの一つとしてIchimokuを利用する
 - Actが停止してもIchimokuの基本機能は動作し続ける
@@ -155,4 +156,4 @@ docs/                          # 設計ドキュメント・ADR
 
 ## ライセンス
 
-ライセンス未設定。GitHubリポジトリはpublicですが、オープンソースライセンスによる再利用許諾は行っていません。
+ライセンス未設定。GitHubリポジトリ`shida-product/app-ichimoku`はpublicですが、オープンソースライセンスによる再利用許諾は行っていません。

@@ -25,7 +25,7 @@ Ichimokuは独立したタスク管理アプリ。ActはIchimokuに内包され�
 
 ### ⚠ 最重要：実 DB 未適用（2026-06-21 現在）
 
-コードは全機能実装済みだが、**Supabase には一切適用していない**。ローカルは `npm run dev` のプレビューモック（`IS_PREVIEW`）で動作確認中（現在 `http://localhost:5175/Ichimoku/` でサーバー起動中）。
+コードは全機能実装済みだが、**Supabase には一切適用していない**。ローカルは `npm run dev` のプレビューモック（`IS_PREVIEW`）で動作確認する。リポジトリ改名後のbaseは`/app-ichimoku/`。
 
 - プレビューモード限定のデモ機能として、画面端にブラウザ拡張（Tampermonkey）の挙動を模倣した擬似UI（つまみ＆クイック追加パネル）を追加しました。プレビュー上で実際にタスクのモック追加デモを行えます。デザインは本体アプリのGoogle配色トンマナに統合済みです。
 
@@ -96,7 +96,7 @@ Ichimokuは独立したタスク管理アプリ。ActはIchimokuに内包され�
 
 | 項目               | 内容                                                                                                              |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| **リポジトリ**     | `https://github.com/shida-product/Ichimoku.git`（public、branch: `main`）                                         |
+| **リポジトリ**     | `https://github.com/shida-product/app-ichimoku.git`（public、branch: `main`）                                     |
 | **仕様正本**       | `task-board-spec-v1.md`（v1.5）                                                                                   |
 | **操作モデル正本** | `prototype-overlay.html`                                                                                          |
 | **デザイン正本**   | `src/index.css`（Google Blue 配色・セマンティックトークン必須・生の hex 禁止）                                    |

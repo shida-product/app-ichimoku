@@ -11,9 +11,9 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
-  // GitHub Pages は https://shida-product.github.io/Ichimoku/ で配信されるため
+  // GitHub Pages は https://shida-product.github.io/app-ichimoku/ で配信されるため
   // base をリポジトリ名に合わせる。
-  base: "/Ichimoku/",
+  base: "/app-ichimoku/",
   build: {
     outDir: "dist",
     minify: false,
