@@ -14,8 +14,6 @@ import { CompletedHistory } from "@/features/tasks/CompletedHistory";
 import { CategoryManager } from "@/features/categories/CategoryManager";
 import { EventDetailPanel } from "@/features/calendar/EventDetailPanel";
 import { ShiftManager } from "@/features/shifts/ShiftManager";
-import { IS_PREVIEW } from "@/lib/preview";
-import { TampermonkeyMockUI } from "@/components/dev/TampermonkeyMockUI";
 
 /**
  * AppShell — 1画面・遷移ゼロのベースレイアウト（仕様 §7 / §3.7）。
@@ -103,9 +101,6 @@ export function AppShell() {
       >
         {peek?.node}
       </SidePeek>
-
-      {/* ── Tampermonkey 擬似UI (プレビュー時のみ表示) ── */}
-      {IS_PREVIEW && <TampermonkeyMockUI />}
     </div>
   );
 }

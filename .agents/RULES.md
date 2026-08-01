@@ -124,6 +124,7 @@
 | ---------- | ---------------- | ---------------- |
 | Web 整形   | `npm run format` | リポジトリルート |
 | Web リント | `npm run lint`   | リポジトリルート |
+| Web ビルド | `npm run build`  | リポジトリルート |
 
 プロジェクト固有のコマンドが増えたら、この表を更新してください。
 
@@ -149,17 +150,18 @@
 
 ### 9-1. プロジェクト概要
 
-| 項目           | 内容                                                                    |
-| -------------- | ----------------------------------------------------------------------- |
-| プロジェクト名 | **Ichimoku**（イチモク）— 経営者向けタスク消化型ツール                  |
-| 概要           | 1画面・遷移ゼロで タスクボード＋近日締切レーン＋カレンダーを並置        |
-| 主言語         | TypeScript (Next.js App Router)                                         |
-| バックエンド   | Supabase (Postgres + Auth + RLS)                                        |
-| ホスティング   | Vercel（予定）                                                          |
-| 仕様書         | `task-board-spec-v1.md`                                                 |
-| UIプロト       | `prototype-overlay.html`                                                |
-| 本番 URL       | （未デプロイ）                                                          |
-| Danger Zone    | `.env.local`（Supabase キー）、Supabase マイグレーション、`vercel.json` |
+| 項目           | 内容                                                                   |
+| -------------- | ---------------------------------------------------------------------- |
+| プロジェクト名 | **Ichimoku**（イチモク）— 経営者向けタスク消化型ツール                 |
+| 概要           | 1画面・遷移ゼロで タスクボード＋近日締切レーン＋カレンダーを並置       |
+| 主言語         | TypeScript（Vite + React 19）                                          |
+| バックエンド   | Supabase (Postgres + Auth + RLS)                                       |
+| サンプル公開   | GitHub Pages（公開・モック限定）                                       |
+| 本番 hosting   | 未決定（Cloudflare Pages + Access等を候補に別途決定）                  |
+| 仕様書         | `task-board-spec-v1.md`                                                |
+| UIプロト       | `prototype-overlay.html`                                               |
+| 本番 URL       | （未デプロイ）                                                         |
+| Danger Zone    | `.env.local`、Supabaseマイグレーション、本番デプロイ・アクセス制御設定 |
 
 ### 9-2. Workflow Routing（着手前に何を読むか）
 

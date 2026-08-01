@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Ichimoku（イチモク）— 経営者向けタスク消化型ツール（1画面・遷移ゼロ）",
+  "description": "Ichimoku（イチモク）— 個人向けタスク・予定消化ツール（1画面・遷移ゼロ）",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

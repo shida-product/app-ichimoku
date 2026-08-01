@@ -1,5 +1,9 @@
 # Google カレンダー連携 セットアップ手順書（双方向・読み書き）
 
+> **Status: deferred / legacy single-account draft（2026-08-01）**
+>
+> 個人版Ichimokuの実DB検証を優先するため、現時点ではこの手順を実行しない。複数Googleアカウントの接続単位、トークン保存、書き込み先選択、失効・削除手順をADRで確定してから更新する。標準GeminiはAI入口の候補であり、Act GemやGoogle Tasksを前提にしない。社外提供前にはOAuth同意画面、検証、プライバシーポリシー、専用本番環境を改めて確認する。
+
 > 目的: Ichimoku の自作カレンダーに Google カレンダーの予定を表示し、アプリ側から予定の作成・編集も行えるようにする（双方向）。
 > この手順書は **君（人間）が Google Cloud / Supabase の管理画面で行う作業** をまとめたもの。コード側は別途 AI が実装する。
 > 所要時間: 約 20〜30 分。費用: **無料**（API 利用料なし。テストユーザー枠なら審査も不要）。
@@ -113,7 +117,7 @@
    - **手順4-5でこの値を Google のリダイレクト URI に登録していなければ、ここで戻って登録する**（相互一致が必須）。
 5. 「Save」。
 6. 左メニュー「Authentication」→「URL Configuration」:
-   - **Site URL**: 開発中は `http://localhost:5173`（Vite の既定ポート。実際のポートに合わせる）。本番は Vercel の URL。
+   - **Site URL**: 開発中は `http://localhost:5173`（Vite の既定ポート。実際のポートに合わせる）。本番は採用した本番ホスティングのURL。公開モック専用のGitHub Pages URLは本番OAuthへ登録しない。
    - **Redirect URLs** に `http://localhost:5173/**` を追加（開発用）。本番 URL も後で追加。
 
 ---

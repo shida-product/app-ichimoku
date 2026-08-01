@@ -1,18 +1,19 @@
 # Ichimoku（イチモク）
 
-> 経営者の日々の作業を **1 画面・遷移ゼロ** で消化していくタスク消化型ツール。
+> 利用者個人の日々の作業を **1 画面・遷移ゼロ** で消化していくタスク消化型ツール。
 > タスクボード・締切・カレンダーを並置し、画面を切り替えずに「今やること」と「迫る締切」が一目で分かる。
 
 ---
 
 ## プロジェクト境界
 
-Ichimokuは独立したタスク管理アプリです。AIエージェントのActそのものではなく、人間とActの双方が利用できます。
+Ichimokuは、利用者個人のタスクと予定を一か所で扱う独立アプリです。AIとは切り離して単独利用でき、個人AIの既定入口には標準Geminiを使います。
 
 - リポジトリ名は、実体がアプリであることを示す`app-ichimoku`
-- 人間はActを介さず、Ichimokuを直接操作できる
-- ActはGoogle Workspace等と並ぶToolの一つとしてIchimokuを利用する
-- Actが停止してもIchimokuの基本機能は動作し続ける
+- 人間はAIを介さず、Ichimokuを直接操作できる
+- ActのAI社員としての開発は保留し、既存Gemは検証資産として保存する
+- 将来のAI連携は標準Geminiを第一候補とし、特定のGemに依存しないTool/API境界で行う
+- AI連携が停止してもIchimokuの基本機能は動作し続ける
 - AnimaとFastはIchimokuの構成要素ではない
 - 全体の統治・採用技術・プロジェクト間の関係はProject Grimoire、Ichimokuの実装と詳細仕様は本リポジトリを正本とする
 
@@ -46,9 +47,18 @@ Ichimokuは独立したタスク管理アプリです。AIエージェントのA
 | ボード DnD   | dnd-kit                                                  |
 | カレンダー   | 自作（無限スクロール・アジェンダ）                       |
 | バックエンド | Supabase（Postgres + Auth + RLS）                        |
-| ホスティング | Cloudflare Pages（予定・未デプロイ）                     |
+| サンプル公開 | GitHub Pages（公開・モック限定）                         |
+| 本番 hosting | 未決定（Cloudflare Pages + Access等を候補に別途決定）    |
 
 ルーティングは持たない（1 画面・遷移ゼロ）。ログイン ↔ メイン画面は `AuthContext` の状態で出し分ける。
+
+## 提供段階
+
+- 当初目標はSKによる個人利用。まず1人分の実DB動作と日常運用を完成させる。
+- 将来社外へ提供する場合も、利用者ごとにURLやDBを分けず、1つのアプリとDBを共有する。
+- 各行の`owner_id`とRLSで利用者データを分離し、利用者へSupabase登録や管理を求めない。
+- 現在のSK共有Supabaseは個人検証に限って利用できる。社外ベータの前に、Ichimoku専用かつ組織所有の本番Supabaseプロジェクトへ分離する。
+- GitHub Pagesは公開モックのサンプル共有専用であり、実DBや実利用者データを接続しない。
 
 ---
 
@@ -132,19 +142,22 @@ docs/                          # 設計ドキュメント・ADR
 
 ## ドキュメント
 
-| 種別                                    | ファイル                                                                      |
-| --------------------------------------- | ----------------------------------------------------------------------------- |
-| 要件・データモデル・操作モデル（正本）  | [`task-board-spec-v1.md`](task-board-spec-v1.md)                              |
-| 操作モデルの実挙動リファレンス          | [`prototype-overlay.html`](prototype-overlay.html)                            |
-| デザイン（配色・トークン・レイアウト）  | [`docs/design.md`](docs/design.md)（実体は [`src/index.css`](src/index.css)） |
-| 設計判断（ADR）                         | [`docs/adr/`](docs/adr/)                                                      |
-| Google カレンダー連携の準備手順（将来） | [`docs/google-calendar-setup.md`](docs/google-calendar-setup.md)              |
+| 種別                                    | ファイル                                                                                       |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| 要件・データモデル・操作モデル（正本）  | [`task-board-spec-v1.md`](task-board-spec-v1.md)                                               |
+| 操作モデルの実挙動リファレンス          | [`prototype-overlay.html`](prototype-overlay.html)                                             |
+| デザイン（配色・トークン・レイアウト）  | [`docs/design.md`](docs/design.md)（実体は [`src/index.css`](src/index.css)）                  |
+| 設計判断（ADR）                         | [`docs/adr/`](docs/adr/)                                                                       |
+| Google カレンダー連携の準備手順（将来） | [`docs/google-calendar-setup.md`](docs/google-calendar-setup.md)                               |
+| 個人AI入口と提供段階の判断              | [`docs/adr/0003-gemini-entry-personal-first.md`](docs/adr/0003-gemini-entry-personal-first.md) |
 
 ## ロードマップ（抜粋）
 
 - ◐ Supabase 配線（実装済み・**実 DB 検証待ち**）／fractional index 並び順の実 DB 検証
+- ☐ 標準Geminiから利用できる、AI非依存のIchimoku Tool/API境界を将来設計（Act連携は保留）
 - ☐ Google アカウント連携＋カレンダー双方向同期（繰り返し予定 `rrule` もここで本格実装）
-- ☐ Cloudflare Pages デプロイ
+- ☐ 本番ホスティングとアクセス制御の決定（GitHub Pagesは公開モックのサンプル専用）
+- ☐ 社外ベータ前に専用・組織所有のSupabaseプロジェクトへ分離
 
 ---
 
