@@ -4,6 +4,8 @@ globs: **/*.py
 alwaysApply: false
 ---
 
+> 共通ルールの正本：`C:/dev/keystone/rules/CORE.md`
+
 # Python 品質規約
 
 - フォーマッタ/リンタは **Ruff**（設定は `pyproject.toml`）。line-length=100。

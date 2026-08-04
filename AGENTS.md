@@ -1,5 +1,7 @@
 # Codex / 汎用 AI 入口
 
+> 共通ルールの正本：`C:/dev/keystone/rules/CORE.md`
+
 Codex やその他の汎用 AI エージェント向け入口。
 **手順の正本は `.agents/BOOTSTRAP.md`**。
 

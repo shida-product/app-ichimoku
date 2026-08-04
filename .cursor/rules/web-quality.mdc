@@ -4,6 +4,8 @@ globs: **/*.{js,jsx,ts,tsx,css,scss,html}
 alwaysApply: false
 ---
 
+> 共通ルールの正本：`C:/dev/keystone/rules/CORE.md`
+
 # Web 品質規約
 
 - 整形は **Prettier**（`.prettierrc.json`）、検証は **ESLint**（`eslint.config.js`）。

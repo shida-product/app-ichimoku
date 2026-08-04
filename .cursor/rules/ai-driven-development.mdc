@@ -3,6 +3,8 @@ description: AI主導開発の運用ルール（Cursor視点）
 alwaysApply: true
 ---
 
+> 共通ルールの正本：`C:/dev/keystone/rules/CORE.md`
+
 # AI主導開発（Cursor）
 
 正本: `.agents/BOOTSTRAP.md` / `.agents/RULES.md`。索引: `.agents/ADAPTERS.md`。
