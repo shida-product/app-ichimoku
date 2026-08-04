@@ -1,0 +1,51 @@
+#!/bin/sh
+# pre-commit — Keystoneを呼ぶだけの薄いシム。
+#
+# 【このファイルにロジックを書かないこと】
+# 検査の実装は中央（$KEYSTONE_HOME/bin/）にある。各リポにはこの呼び出しだけを置く。
+# 同梱コピーを持たせると、古いまま静かに動いて「守られている錯覚」を生むため置かない
+# （C:/dev/.agents/lessons.md #5 / 2026-08-02 の全リポ素通り事故）。
+#
+# 有効化（clone ごとに1回）: git config core.hooksPath .githooks
+# 中央の場所を変える場合: 環境変数 KEYSTONE_HOME を設定する
+#
+# fail-closed 方針: 実行環境やKeystoneが欠けている場合、スキップせずコミットを中止する。
+# 「動かない自動化は無いより悪い」ため、黙って通さない。
+
+KEYSTONE_HOME="${KEYSTONE_HOME:-C:/dev/keystone}"
+
+if ! command -v node >/dev/null 2>&1; then
+    echo "error: pre-commit: node が見つかりません。文字化け検査ができないためコミットを中止します。"
+    echo "  意図的に飛ばす場合のみ: git commit --no-verify"
+    exit 1
+fi
+
+if [ ! -f "$KEYSTONE_HOME/bin/lint-encoding.cjs" ]; then
+    echo "error: pre-commit: Keystoneが見つかりません。"
+    echo "  探した場所: $KEYSTONE_HOME"
+    echo "  対処: 環境変数 KEYSTONE_HOME を設定するか、Keystoneを配置してください。"
+    echo "  意図的に飛ばす場合のみ: git commit --no-verify"
+    exit 1
+fi
+
+rc=0
+
+node "$KEYSTONE_HOME/bin/lint-encoding.cjs" --staged
+if [ "$?" -ne 0 ]; then
+    echo ""
+    echo "pre-commit: 文字化けを検出したためコミットを中止します。"
+    echo "  正当な表記の場合のみ、その行に 'lint-encoding-ignore' を付けてください。"
+    rc=1
+fi
+
+# 教訓カウントの整合（.agents/lessons 配下が変更されたときだけ）
+if git diff --cached --name-only --diff-filter=ACMR | grep -qE '^\.agents/lessons'; then
+    node "$KEYSTONE_HOME/bin/check-lesson-counts.cjs"
+    if [ "$?" -ne 0 ]; then
+        echo ""
+        echo "pre-commit: 教訓カウントが実数とずれています。上の出力に従って直してください。"
+        rc=1
+    fi
+fi
+
+exit $rc

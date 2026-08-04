@@ -1,0 +1,7 @@
+{
+  "harness": "keystone",
+  "version": "2026.08.1",
+  "tier": 1,
+  "grimoire": "60_Projects/app-ichimoku",
+  "applied": "2026-08-02"
+}

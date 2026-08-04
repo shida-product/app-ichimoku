@@ -1,184 +1,70 @@
-# AI 共通行動指針
+# RULES — Ichimoku 固有ルール
 
-このファイルは、Cursor / Antigravity / Claude Code など複数の AI エージェントで共通利用する **最上位の正本ルール** です。
-各 AI 固有の入口（`AGENTS.md` / `CLAUDE.md` / `GEMINI.md`）はこのファイルへの導線として扱い、AI 共通ルールはここにだけ書きます。
-
----
-
-## 0. コンテキストのオートロード
-
-実装、調査、レビュー、設計、ドキュメント整理のいずれに入る場合も、作業前に必ず次を確認してください。
-
-毎回必ず読むファイル:
-
-- `.agents/BOOTSTRAP.md`（起動・終了手順の正本）
-- `.agents/RULES.md`（このファイル）
-- `.agents/handover.md`
-- `.agents/state/locks.md`
-- `.agents/lessons.md`
-
-必要に応じて読むファイル:
-
-- タスクに関連する `.agents/lessons/*.md`
-- タスクに関連する `.agents/workflows/*.md`
-- `.agents/changelog.md`（過去経緯の確認が必要なとき）
-
-全体像は [orchestration.md](orchestration.md)。起動・終了は [BOOTSTRAP.md](BOOTSTRAP.md)。ツール別経路は [ADAPTERS.md](ADAPTERS.md)。ロード対象の選び方は §9-2 の Workflow Routing 表を参照してください。
-
-### 0-1. ルールの優先順位（衝突時）
-
-1. **`.agents/lessons.md` の Critical Rules** — 本番事故・セキュリティ穴から昇格した絶対遵守ルール
-2. **`.agents/lessons/<category>.md`** — 現場で踏んだ落とし穴の記録
-3. **`.agents/workflows/*.md`** — タスク種別ごとの手順書
-4. **`.agents/RULES.md`（このファイル）** — 一般原則
-5. **各 AI の入口ファイル** — AI 固有の補足のみ
-
-矛盾を見つけたら、勝手に上位を書き換えず **ユーザーに報告** してから対応してください。
+> **共通ルールの正本は `C:/dev/keystone/rules/CORE.md`。先にそちらを読むこと。**
+> 言語・文字化け対策・コミット作法・秘密情報・推測の排除・作業の区切り・`.agents/` の役割分担は CORE.md が正本。ここには複製しない。
+>
+> このファイルは **Ichimoku でしか起きないこと** だけを持つ。
 
 ---
 
-## 1. 言語と出力
+## 1. プロジェクト概要
 
-- ユーザーへの応答は日本語で行ってください。
-- AI が新規作成または大きく編集する設計書・コミットメッセージ・コメントは日本語を基本にしてください。
-- 既存コードや外部仕様が英語で統一されている箇所では、保守性を優先し、必要最小限の英語は許容します。
-- 出力は結論ファースト。冗長な前置き・挨拶・言い訳は避けてください。
-
----
-
-## 2. 絶対ルール（Always Rules）
-
-| #   | ルール                       | 概要                                                                                                                                         |
-| --- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| A1  | **No Placeholders**          | `// ...省略...` のような省略記法でコードを返さない。コピペで動く完全なコードを出力する。                                                     |
-| A2  | **Verification Before Done** | 完了宣言前に、要求を満たして動くか・副作用はないかを自問自答する。                                                                           |
-| A3  | **Stop & Report**            | 10 ステップ超の連続ツール実行が見えたら停止し、進捗と判断ポイントを提示する。                                                                |
-| A4  | **Assumption-Free**          | 既存の構造・命名・データフローは推測で書かない。必ず既存ファイルを確認してから実装する。                                                     |
-| A5  | **Semantic Committer**       | Git コミットは Conventional Commits 準拠の日本語メッセージ。**関心事ごとに分割**し、**固まってから**コミット（逐一コミットしない）。         |
-| A6  | **ADR Manager**              | DB 設計変更・新システム導入・大規模リファクタ時は `docs/adr/` に ADR を残す（プロジェクトで採用している場合）。                              |
-| A7  | **Autonomous Handoff**       | 作業の区切りで、指示なく `handover` を更新する。教訓・マイルストーンがあれば `lessons` / `changelog` も更新する（`session-close.md` 参照）。 |
-| A8  | **Lock Protocol**            | 編集前に `state/locks.md` に追記、終了時に削除。ロック中ファイルは触らない。ロック外は並列可。                                               |
+| 項目 | 内容 |
+| --- | --- |
+| 名称 | **Ichimoku**（イチモク）— 経営者向けタスク消化型ツール |
+| 概要 | 1画面・遷移ゼロで タスクボード＋近日締切レーン＋カレンダーを並置 |
+| 主言語 | TypeScript（Vite + React 19） |
+| バックエンド | Supabase（Postgres + Auth + RLS） |
+| サンプル公開 | GitHub Pages（公開・モック限定） |
+| 本番 hosting | 未決定（Cloudflare Pages + Access 等を候補に別途決定） |
+| 仕様書 | `task-board-spec-v1.md` |
+| UIプロト | `prototype-overlay.html` |
+| 本番 URL | 未デプロイ |
 
 ---
 
-## 3. 開発プロセス
+## 2. Danger Zone（明示指示なしに触らない）
 
-- 小さな修正は、必要な確認を済ませたうえで即座に提案・実装してかまいません。
-- 大規模な変更・新規機能・設計判断が重い作業は、先に方針を提示し、合意を得てから実装してください。
-- エラー修正の報告は次の 3 点を明記: **どこに** / **何のミスが** / **どう直したか**。
-
-### 3-1. AI主導開発とセッション運用
-
-- **人間の役割は監査役**: コーディングは AI が主導し、人間はレビューと目視チェックに徹する。
-- **使用する AI / エディタの指定はしない**。どのツールでも `.agents/` を正本として同じルールで動く。
-- 複数セッション・複数 AI を併用する場合、`state/locks.md` で編集中ファイルを共有し、**ロック中ファイルだけ編集しない**（ロック外は並列可。詳細: `workflows/ai-session.md`）。
-- 作業の区切りでは **ユーザー指示なしで** `workflows/session-close.md` を実行する（handover 更新、必要なら lessons / changelog、バッチコミット）。
+1. **`.env.local`** — Supabase の URL / キー
+2. **Supabase マイグレーション**と本番DBへの直接操作
+3. **本番デプロイ・アクセス制御設定**
+4. **`git push --force`**（特に `main`）
+5. **`package-lock.json`** — 意図的更新を除く
 
 ---
 
-## 4. エンジニアリング・スタンス
+## 3. 検証コマンド
 
-- ユーザー案を全肯定せず、リスクやより良い代替案があれば率直に提示する。
-- 理想論より、運用負担・保守コスト・障害時の切り分けやすさを優先する。
-- 不確実な場合は前提を明示するか、必要な確認を取る。
-- 既存の設計、命名、ディレクトリ構成、テスト方針を尊重する。
+| 対象 | コマンド |
+| --- | --- |
+| Web 整形 | `npm run format` |
+| Web リント | `npm run lint` |
+| Web ビルド | `npm run build` |
 
----
-
-## 5. コードの健康維持
-
-- 依頼範囲を超える大きなリファクタリングは勝手に実施しない。
-- 同じ機能なら、よりシンプルでネストが浅く、運用負担の少ない設計を優先する。
-- 実装方針を提示するときは、選定理由とメリット・デメリットを簡潔に添える。
+> 文字化け検査は **Keystone が中央で実行する**（`.githooks/pre-commit` が自動で呼ぶ）。
+> 手動実行する場合: `node C:/dev/keystone/bin/lint-encoding.cjs`
 
 ---
 
-## 6. Git の安全策と Danger Zone
+## 4. Workflow Routing（着手前に何を読むか）
 
-### 6-1. 破壊的操作の制限
-
-- `git reset --hard`、force push、履歴改変、広範囲削除は、ユーザーの明示許可なしに実行しない。
-- 未コミット変更はユーザーや他プロセスの変更として扱い、勝手に巻き戻さない。
-
-### 6-2. Danger Zone（明示指示なしに触れない領域）
-
-プロジェクトにより異なるため、**§9-1 の Danger Zone 一覧** を確認すること。一般的には次を含む:
-
-1. **秘密情報ファイル** — `.env`、認証情報、API キー
-2. **本番 DB への直接操作**
-3. **`git push --force`**（特に `main` への force push）
-4. **デプロイパイプライン** — `.github/workflows/*` 等
-5. **ロックファイル** — `package-lock.json` / `composer.lock` 等（意図的更新を除く）
-
----
-
-## 7. テストと検証
-
-- 実装後は、変更範囲に応じて最小限かつ十分なテスト・静的解析・構文チェックを実行する。
-- テストを実行できなかった場合は、その理由と代替確認を明記する。
-- API 検証では、必要に応じて REST Client 用の `.http` ファイルを作成・更新する。
-
-### 7-1. プロジェクト固有のコマンド
-
-| 対象       | コマンド         | 場所             |
-| ---------- | ---------------- | ---------------- |
-| Web 整形   | `npm run format` | リポジトリルート |
-| Web リント | `npm run lint`   | リポジトリルート |
-| Web ビルド | `npm run build`  | リポジトリルート |
-
-プロジェクト固有のコマンドが増えたら、この表を更新してください。
+| 作業内容 | 読み込むファイル |
+| --- | --- |
+| 起動・終了手順 | `.agents/BOOTSTRAP.md` |
+| ツール別読み込み経路 | `.agents/ADAPTERS.md` |
+| オーケストレーション全体像 | `.agents/orchestration.md` |
+| 編集ロック・並列調整 | `.agents/state/locks.md` |
+| AI セッション運用 | `.agents/workflows/ai-session.md` |
+| 作業完了時の自律引き継ぎ | `.agents/workflows/session-close.md` |
+| Git 操作・コミット | `.agents/workflows/git-safety.md` |
+| 人間によるレビュー | `.agents/workflows/review-checklist.md` |
+| 推奨拡張・IDE 同期方針 | `.agents/workflows/extensions.md` |
+| エンコーディング事故の詳細 | `.agents/lessons/encoding.md` |
+| セキュリティ全般 | `.agents/lessons/security.md` |
 
 ---
 
-## 8. AI 学習メモリの運用
+## 5. commit 関所
 
-- **handover の更新は毎回の作業区切りで自律的に行う**（ユーザーに「書いて」と言われるのを待たない）。
-- 新しいミスや重要な発見は `.agents/lessons/<category>.md` に **自律的に** 追記する。
-- マイルストーン級の完了は `.agents/changelog.md` に追記する。
-- 作業履歴は `changelog`、現在地は `handover`、再発防止は `lessons` に分ける。
-- `.agents/handover.md` は現在地・次アクション・境界だけに限定する（履歴ログ化しない）。
-- 150 行超で黄色信号、200 行超で整理必須。詳細は changelog / lessons へ逃がす。
-
-手順の正本: [.agents/workflows/session-close.md](workflows/session-close.md)
-追記プロトコル: [.agents/lessons/README.md](lessons/README.md)
-
----
-
-## 9. プロジェクト固有（テンプレート）
-
-新規プロジェクト開始時に、このセクションをプロジェクト内容に合わせて更新してください。
-
-### 9-1. プロジェクト概要
-
-| 項目           | 内容                                                                   |
-| -------------- | ---------------------------------------------------------------------- |
-| プロジェクト名 | **Ichimoku**（イチモク）— 経営者向けタスク消化型ツール                 |
-| 概要           | 1画面・遷移ゼロで タスクボード＋近日締切レーン＋カレンダーを並置       |
-| 主言語         | TypeScript（Vite + React 19）                                          |
-| バックエンド   | Supabase (Postgres + Auth + RLS)                                       |
-| サンプル公開   | GitHub Pages（公開・モック限定）                                       |
-| 本番 hosting   | 未決定（Cloudflare Pages + Access等を候補に別途決定）                  |
-| 仕様書         | `task-board-spec-v1.md`                                                |
-| UIプロト       | `prototype-overlay.html`                                               |
-| 本番 URL       | （未デプロイ）                                                         |
-| Danger Zone    | `.env.local`、Supabaseマイグレーション、本番デプロイ・アクセス制御設定 |
-
-### 9-2. Workflow Routing（着手前に何を読むか）
-
-| 作業内容                     | 読み込むファイル                         |
-| ---------------------------- | ---------------------------------------- |
-| 起動・終了手順（正本）       | `.agents/BOOTSTRAP.md`                   |
-| ツール別読み込み経路         | `.agents/ADAPTERS.md`                    |
-| オーケストレーション全体像   | `.agents/orchestration.md`               |
-| 編集ロック・並列調整         | `.agents/state/locks.md`                 |
-| AI セッション運用            | `.agents/workflows/ai-session.md`        |
-| 作業完了時の自律引き継ぎ     | `.agents/workflows/session-close.md`     |
-| Git 操作・コミット           | `.agents/workflows/git-safety.md`        |
-| 人間によるレビュー           | `.agents/workflows/review-checklist.md`  |
-| Windows で日本語ファイル操作 | `.agents/workflows/terminal-encoding.md` |
-| 推奨拡張・IDE 同期方針       | `.agents/workflows/extensions.md`        |
-
-| 着手内容                   | 読み込むファイル              |
-| -------------------------- | ----------------------------- |
-| エンコーディング・文字化け | `.agents/lessons/encoding.md` |
-| セキュリティ全般           | `.agents/lessons/security.md` |
+`.githooks/pre-commit` は **Keystone を呼ぶシム**。検査ロジックはこのリポに無い。
+有効化は各クローンで1回: `git config core.hooksPath .githooks`
