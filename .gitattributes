@@ -1,3 +1,5 @@
 * text=auto eol=crlf
 *.py text eol=crlf
 *.{js,ts,json,html,css,md,toml,yml,yaml} text eol=crlf
+# Keystone: シムの shebang を壊さないため LF 固定
+.githooks/pre-commit text eol=lf

@@ -48,4 +48,15 @@ if git diff --cached --name-only --diff-filter=ACMR | grep -qE '^\.agents/lesson
     fi
 fi
 
+# 文書と git の実状の突合（.agents 配下の変更時。docFacts を宣言したリポだけで動く）
+if git diff --cached --name-only --diff-filter=ACMR | grep -qE '^\.agents/'; then
+    node "$KEYSTONE_HOME/bin/doc-facts.cjs" --if-declared
+    if [ "$?" -ne 0 ]; then
+        echo ""
+        echo "pre-commit: 文書の記述が git の実状と食い違っています。上の出力に従って直してください。"
+        echo "  意図的な記録の場合のみ、その行に 'doc-facts-ignore' を付けてください。"
+        rc=1
+    fi
+fi
+
 exit $rc
