@@ -1,16 +1,6 @@
 ---
-description: AI主導開発の運用ルール（Cursor視点）
+description: AI作業の共通入口
 alwaysApply: true
 ---
 
-> 共通ルールの正本：`C:/dev/keystone/rules/CORE.md`
-
-# AI主導開発（Cursor）
-
-正本: `.agents/BOOTSTRAP.md` / `.agents/RULES.md`。索引: `.agents/ADAPTERS.md`。
-
-- 人間は監査役。AI / エディタの割当て指示はしない。
-- 開始: `.agents/skills/session-start.md`（`.cursor/skills/session-start` がトリガー）
-- 終了: `.agents/skills/session-close.md`（`.cursor/skills/session-close` がトリガー）
-- コミットは関心事ごと・固まってから。push は指示があるまでしない。
-- ロック中ファイルは編集しない。ロック外は並列可。
+[AGENTS.md](../../AGENTS.md)に従う。開始・終了のトリガーは既存skillsを使い、読込順やロック義務をここへ複製しない。

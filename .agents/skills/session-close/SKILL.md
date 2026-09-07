@@ -1,12 +1,8 @@
 ---
 name: session-close
-description: >-
-  作業完了・一区切り・セッション終了時。locks解除、品質ゲート、handover/lessons/changelog更新、
-  バッチコミットを自律実行。タスク完了報告前に必ず適用。
+description: 作業の区切りに対象gateを確認し、意味が変わった記録だけ更新する。
 ---
 
-# session-close（Codex Adapter）
+# session-close
 
-**正本を実行せよ:** `.agents/skills/session-close.md`
-
-要約: `workflows/session-close.md` の 0〜5 をすべて実行し、完了報告に結果を含める。
+正本 `.agents/skills/session-close.md` を実行する。読込順や更新義務をここへ複製しない。

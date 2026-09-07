@@ -20,15 +20,9 @@
 | **Claude Code**  | `CLAUDE.md`（`@` 展開） | `.claude/skills/*/SKILL.md`    | 同上                   |
 | **Codex / 汎用** | `AGENTS.md`             | （なし・BOOTSTRAP を直接読む） | 同上                   |
 
-## 全ツール共通の必読セット
+## 共通の取得契約
 
-```
-.agents/BOOTSTRAP.md      ← 起動・終了手順（このファイル群の要）
-.agents/RULES.md
-.agents/handover.md
-.agents/state/locks.md
-.agents/lessons.md
-```
+[AGENTS.md](../AGENTS.md)だけが開始・再開条件を定義する。BOOTSTRAPとskillsはその入口。CLAUDEの自動importはAGENTSのみで、RULES・仕様・教訓の追加取得はAGENTSの条件による。宣言量と実際の読込ログは区別する。
 
 ## skills の二重管理をしない
 
