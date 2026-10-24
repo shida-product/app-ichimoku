@@ -1,11 +1,11 @@
-//#region \0rolldown/runtime.js
+// \0rolldown/runtime.js
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __commonJSMin = (cb, mod) => () => (mod || (cb((mod = { exports: {} }).exports, mod), cb = null), mod.exports);
+var __commonJSMin = (cb, mod) => () => (mod || (cb((mod = { exports: {} }).exports, mod, mod.exports), cb = null), mod.exports);
 var __copyProps = (to, from, except, desc) => {
 	if (from && typeof from === "object" || typeof from === "function") for (var keys = __getOwnPropNames(from), i = 0, n = keys.length, key; i < n; i++) {
 		key = keys[i];
@@ -16,12 +16,11 @@ var __copyProps = (to, from, except, desc) => {
 	}
 	return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", {
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule || !__hasOwnProp.call(mod, "default") ? __defProp(target, "default", {
 	value: mod,
 	enumerable: true
 }) : target, mod));
-//#endregion
-//#region \0vite/modulepreload-polyfill.js
+// \0vite/modulepreload-polyfill.js
 (function polyfill() {
 	const relList = document.createElement("link").relList;
 	if (relList && relList.supports && relList.supports("modulepreload")) return;
@@ -51,8 +50,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 		fetch(link.href, fetchOpts);
 	}
 })();
-//#endregion
-//#region node_modules/react/cjs/react.production.js
+// node_modules/react/cjs/react.production.js
 /**
 * @license React
 * react.production.js
@@ -63,7 +61,19 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 * LICENSE file in the root directory of this source tree.
 */
 var require_react_production = /* @__PURE__ */ __commonJSMin(((exports) => {
-	var REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), MAYBE_ITERATOR_SYMBOL = Symbol.iterator;
+	var REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element");
+	var REACT_PORTAL_TYPE = Symbol.for("react.portal");
+	var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
+	var REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode");
+	var REACT_PROFILER_TYPE = Symbol.for("react.profiler");
+	var REACT_CONSUMER_TYPE = Symbol.for("react.consumer");
+	var REACT_CONTEXT_TYPE = Symbol.for("react.context");
+	var REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref");
+	var REACT_SUSPENSE_TYPE = Symbol.for("react.suspense");
+	var REACT_MEMO_TYPE = Symbol.for("react.memo");
+	var REACT_LAZY_TYPE = Symbol.for("react.lazy");
+	var REACT_ACTIVITY_TYPE = Symbol.for("react.activity");
+	var MAYBE_ITERATOR_SYMBOL = Symbol.iterator;
 	function getIteratorFn(maybeIterable) {
 		if (null === maybeIterable || "object" !== typeof maybeIterable) return null;
 		maybeIterable = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable["@@iterator"];
@@ -76,7 +86,9 @@ var require_react_production = /* @__PURE__ */ __commonJSMin(((exports) => {
 		enqueueForceUpdate: function() {},
 		enqueueReplaceState: function() {},
 		enqueueSetState: function() {}
-	}, assign = Object.assign, emptyObject = {};
+	};
+	var assign = Object.assign;
+	var emptyObject = {};
 	function Component(props, context, updater) {
 		this.props = props;
 		this.context = context;
@@ -110,7 +122,8 @@ var require_react_production = /* @__PURE__ */ __commonJSMin(((exports) => {
 		A: null,
 		T: null,
 		S: null
-	}, hasOwnProperty = Object.prototype.hasOwnProperty;
+	};
+	var hasOwnProperty = Object.prototype.hasOwnProperty;
 	function ReactElement(type, key, props) {
 		var refProp = props.ref;
 		return {
@@ -224,7 +237,8 @@ var require_react_production = /* @__PURE__ */ __commonJSMin(((exports) => {
 			return;
 		}
 		console.error(error);
-	}, Children = {
+	};
+	var Children = {
 		map: mapChildren,
 		forEach: function(children, forEachFunc, forEachContext) {
 			mapChildren(children, function() {
@@ -411,13 +425,11 @@ var require_react_production = /* @__PURE__ */ __commonJSMin(((exports) => {
 	};
 	exports.version = "19.2.7";
 }));
-//#endregion
-//#region node_modules/react/index.js
+// node_modules/react/index.js
 var require_react = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	module.exports = require_react_production();
 }));
-//#endregion
-//#region node_modules/scheduler/cjs/scheduler.production.js
+// node_modules/scheduler/cjs/scheduler.production.js
 /**
 * @license React
 * scheduler.production.js
@@ -470,7 +482,18 @@ var require_scheduler_production = /* @__PURE__ */ __commonJSMin(((exports) => {
 			return localDate.now() - initialTime;
 		};
 	}
-	var taskQueue = [], timerQueue = [], taskIdCounter = 1, currentTask = null, currentPriorityLevel = 3, isPerformingWork = !1, isHostCallbackScheduled = !1, isHostTimeoutScheduled = !1, needsPaint = !1, localSetTimeout = "function" === typeof setTimeout ? setTimeout : null, localClearTimeout = "function" === typeof clearTimeout ? clearTimeout : null, localSetImmediate = "undefined" !== typeof setImmediate ? setImmediate : null;
+	var taskQueue = [];
+	var timerQueue = [];
+	var taskIdCounter = 1;
+	var currentTask = null;
+	var currentPriorityLevel = 3;
+	var isPerformingWork = !1;
+	var isHostCallbackScheduled = !1;
+	var isHostTimeoutScheduled = !1;
+	var needsPaint = !1;
+	var localSetTimeout = "function" === typeof setTimeout ? setTimeout : null;
+	var localClearTimeout = "function" === typeof clearTimeout ? clearTimeout : null;
+	var localSetImmediate = "undefined" !== typeof setImmediate ? setImmediate : null;
 	function advanceTimers(currentTime) {
 		for (var timer = peek(timerQueue); null !== timer;) {
 			if (null === timer.callback) pop(timerQueue);
@@ -488,7 +511,10 @@ var require_scheduler_production = /* @__PURE__ */ __commonJSMin(((exports) => {
 			null !== firstTimer && requestHostTimeout(handleTimeout, firstTimer.startTime - currentTime);
 		}
 	}
-	var isMessageLoopRunning = !1, taskTimeoutID = -1, frameInterval = 5, startTime = -1;
+	var isMessageLoopRunning = !1;
+	var taskTimeoutID = -1;
+	var frameInterval = 5;
+	var startTime = -1;
 	function shouldYieldToHost() {
 		return needsPaint ? !0 : exports.unstable_now() - startTime < frameInterval ? !1 : !0;
 	}
@@ -657,13 +683,11 @@ var require_scheduler_production = /* @__PURE__ */ __commonJSMin(((exports) => {
 		};
 	};
 }));
-//#endregion
-//#region node_modules/scheduler/index.js
+// node_modules/scheduler/index.js
 var require_scheduler = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	module.exports = require_scheduler_production();
 }));
-//#endregion
-//#region node_modules/react-dom/cjs/react-dom.production.js
+// node_modules/react-dom/cjs/react-dom.production.js
 /**
 * @license React
 * react-dom.production.js
@@ -700,7 +724,8 @@ var require_react_dom_production = /* @__PURE__ */ __commonJSMin(((exports) => {
 		},
 		p: 0,
 		findDOMNode: null
-	}, REACT_PORTAL_TYPE = Symbol.for("react.portal");
+	};
+	var REACT_PORTAL_TYPE = Symbol.for("react.portal");
 	function createPortal$1(children, containerInfo, implementation) {
 		var key = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : null;
 		return {
@@ -803,8 +828,7 @@ var require_react_dom_production = /* @__PURE__ */ __commonJSMin(((exports) => {
 	};
 	exports.version = "19.2.7";
 }));
-//#endregion
-//#region node_modules/react-dom/index.js
+// node_modules/react-dom/index.js
 var require_react_dom = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	function checkDCE() {
 		if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === "undefined" || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== "function") return;
@@ -817,8 +841,7 @@ var require_react_dom = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	checkDCE();
 	module.exports = require_react_dom_production();
 }));
-//#endregion
-//#region node_modules/react-dom/cjs/react-dom-client.production.js
+// node_modules/react-dom/cjs/react-dom-client.production.js
 /**
 * @license React
 * react-dom-client.production.js
@@ -829,7 +852,9 @@ var require_react_dom = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 * LICENSE file in the root directory of this source tree.
 */
 var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((exports) => {
-	var Scheduler = require_scheduler(), React = require_react(), ReactDOM = require_react_dom();
+	var Scheduler = require_scheduler();
+	var React = require_react();
+	var ReactDOM = require_react_dom();
 	function formatProdErrorMessage(code) {
 		var url = "https://react.dev/errors/" + code;
 		if (1 < arguments.length) {
@@ -949,7 +974,20 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		}
 		return null;
 	}
-	var assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = Symbol.for("react.element"), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy");
+	var assign = Object.assign;
+	var REACT_LEGACY_ELEMENT_TYPE = Symbol.for("react.element");
+	var REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element");
+	var REACT_PORTAL_TYPE = Symbol.for("react.portal");
+	var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
+	var REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode");
+	var REACT_PROFILER_TYPE = Symbol.for("react.profiler");
+	var REACT_CONSUMER_TYPE = Symbol.for("react.consumer");
+	var REACT_CONTEXT_TYPE = Symbol.for("react.context");
+	var REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref");
+	var REACT_SUSPENSE_TYPE = Symbol.for("react.suspense");
+	var REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list");
+	var REACT_MEMO_TYPE = Symbol.for("react.memo");
+	var REACT_LAZY_TYPE = Symbol.for("react.lazy");
 	var REACT_ACTIVITY_TYPE = Symbol.for("react.activity");
 	var REACT_MEMO_CACHE_SENTINEL = Symbol.for("react.memo_cache_sentinel");
 	var MAYBE_ITERATOR_SYMBOL = Symbol.iterator;
@@ -990,12 +1028,17 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		}
 		return null;
 	}
-	var isArrayImpl = Array.isArray, ReactSharedInternals = React.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, sharedNotPendingObject = {
+	var isArrayImpl = Array.isArray;
+	var ReactSharedInternals = React.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
+	var ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
+	var sharedNotPendingObject = {
 		pending: !1,
 		data: null,
 		method: null,
 		action: null
-	}, valueStack = [], index = -1;
+	};
+	var valueStack = [];
+	var index = -1;
 	function createCursor(defaultValue) {
 		return { current: defaultValue };
 	}
@@ -1007,7 +1050,10 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		valueStack[index] = cursor.current;
 		cursor.current = value;
 	}
-	var contextStackCursor = createCursor(null), contextFiberStackCursor = createCursor(null), rootInstanceStackCursor = createCursor(null), hostTransitionProviderCursor = createCursor(null);
+	var contextStackCursor = createCursor(null);
+	var contextFiberStackCursor = createCursor(null);
+	var rootInstanceStackCursor = createCursor(null);
+	var hostTransitionProviderCursor = createCursor(null);
 	function pushHostContainer(fiber, nextRootInstance) {
 		push(rootInstanceStackCursor, nextRootInstance);
 		push(contextFiberStackCursor, fiber);
@@ -1046,7 +1092,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		contextFiberStackCursor.current === fiber && (pop(contextStackCursor), pop(contextFiberStackCursor));
 		hostTransitionProviderCursor.current === fiber && (pop(hostTransitionProviderCursor), HostTransitionContext._currentValue = sharedNotPendingObject);
 	}
-	var prefix, suffix;
+	var prefix;
+	var suffix;
 	function describeBuiltInComponentFrame(name) {
 		if (void 0 === prefix) try {
 			throw Error();
@@ -1153,19 +1200,38 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 			return "\nError generating stack: " + x.message + "\n" + x.stack;
 		}
 	}
-	var hasOwnProperty = Object.prototype.hasOwnProperty, scheduleCallback$3 = Scheduler.unstable_scheduleCallback, cancelCallback$1 = Scheduler.unstable_cancelCallback, shouldYield = Scheduler.unstable_shouldYield, requestPaint = Scheduler.unstable_requestPaint, now = Scheduler.unstable_now, getCurrentPriorityLevel = Scheduler.unstable_getCurrentPriorityLevel, ImmediatePriority = Scheduler.unstable_ImmediatePriority, UserBlockingPriority = Scheduler.unstable_UserBlockingPriority, NormalPriority$1 = Scheduler.unstable_NormalPriority, LowPriority = Scheduler.unstable_LowPriority, IdlePriority = Scheduler.unstable_IdlePriority, log$1 = Scheduler.log, unstable_setDisableYieldValue = Scheduler.unstable_setDisableYieldValue, rendererID = null, injectedHook = null;
+	var hasOwnProperty = Object.prototype.hasOwnProperty;
+	var scheduleCallback$3 = Scheduler.unstable_scheduleCallback;
+	var cancelCallback$1 = Scheduler.unstable_cancelCallback;
+	var shouldYield = Scheduler.unstable_shouldYield;
+	var requestPaint = Scheduler.unstable_requestPaint;
+	var now = Scheduler.unstable_now;
+	var getCurrentPriorityLevel = Scheduler.unstable_getCurrentPriorityLevel;
+	var ImmediatePriority = Scheduler.unstable_ImmediatePriority;
+	var UserBlockingPriority = Scheduler.unstable_UserBlockingPriority;
+	var NormalPriority$1 = Scheduler.unstable_NormalPriority;
+	var LowPriority = Scheduler.unstable_LowPriority;
+	var IdlePriority = Scheduler.unstable_IdlePriority;
+	var log$1 = Scheduler.log;
+	var unstable_setDisableYieldValue = Scheduler.unstable_setDisableYieldValue;
+	var rendererID = null;
+	var injectedHook = null;
 	function setIsStrictModeForDevtools(newIsStrictMode) {
 		"function" === typeof log$1 && unstable_setDisableYieldValue(newIsStrictMode);
 		if (injectedHook && "function" === typeof injectedHook.setStrictMode) try {
 			injectedHook.setStrictMode(rendererID, newIsStrictMode);
 		} catch (err) {}
 	}
-	var clz32 = Math.clz32 ? Math.clz32 : clz32Fallback, log = Math.log, LN2 = Math.LN2;
+	var clz32 = Math.clz32 ? Math.clz32 : clz32Fallback;
+	var log = Math.log;
+	var LN2 = Math.LN2;
 	function clz32Fallback(x) {
 		x >>>= 0;
 		return 0 === x ? 32 : 31 - (log(x) / LN2 | 0) | 0;
 	}
-	var nextTransitionUpdateLane = 256, nextTransitionDeferredLane = 262144, nextRetryLane = 4194304;
+	var nextTransitionUpdateLane = 256;
+	var nextTransitionDeferredLane = 262144;
+	var nextRetryLane = 4194304;
 	function getHighestPriorityLanes(lanes) {
 		var pendingSyncLanes = lanes & 42;
 		if (0 !== pendingSyncLanes) return pendingSyncLanes;
@@ -1367,7 +1433,15 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 			ReactDOMSharedInternals.p = previousPriority;
 		}
 	}
-	var randomKey = Math.random().toString(36).slice(2), internalInstanceKey = "__reactFiber$" + randomKey, internalPropsKey = "__reactProps$" + randomKey, internalContainerInstanceKey = "__reactContainer$" + randomKey, internalEventHandlersKey = "__reactEvents$" + randomKey, internalEventHandlerListenersKey = "__reactListeners$" + randomKey, internalEventHandlesSetKey = "__reactHandles$" + randomKey, internalRootNodeResourcesKey = "__reactResources$" + randomKey, internalHoistableMarker = "__reactMarker$" + randomKey;
+	var randomKey = Math.random().toString(36).slice(2);
+	var internalInstanceKey = "__reactFiber$" + randomKey;
+	var internalPropsKey = "__reactProps$" + randomKey;
+	var internalContainerInstanceKey = "__reactContainer$" + randomKey;
+	var internalEventHandlersKey = "__reactEvents$" + randomKey;
+	var internalEventHandlerListenersKey = "__reactListeners$" + randomKey;
+	var internalEventHandlesSetKey = "__reactHandles$" + randomKey;
+	var internalRootNodeResourcesKey = "__reactResources$" + randomKey;
+	var internalHoistableMarker = "__reactMarker$" + randomKey;
 	function detachDeletedInstance(node) {
 		delete node[internalInstanceKey];
 		delete node[internalPropsKey];
@@ -1415,7 +1489,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 	function markNodeAsHoistable(node) {
 		node[internalHoistableMarker] = !0;
 	}
-	var allNativeEvents = /* @__PURE__ */ new Set(), registrationNameDependencies = {};
+	var allNativeEvents = /* @__PURE__ */ new Set();
+	var registrationNameDependencies = {};
 	function registerTwoPhaseEvent(registrationName, dependencies) {
 		registerDirectEvent(registrationName, dependencies);
 		registerDirectEvent(registrationName + "Capture", dependencies);
@@ -1424,7 +1499,9 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		registrationNameDependencies[registrationName] = dependencies;
 		for (registrationName = 0; registrationName < dependencies.length; registrationName++) allNativeEvents.add(dependencies[registrationName]);
 	}
-	var VALID_ATTRIBUTE_NAME_REGEX = RegExp("^[:A-Z_a-z\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD][:A-Z_a-z\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD\\-.0-9\\u00B7\\u0300-\\u036F\\u203F-\\u2040]*$"), illegalAttributeNameCache = {}, validatedAttributeNameCache = {};
+	var VALID_ATTRIBUTE_NAME_REGEX = RegExp("^[:A-Z_a-z\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD][:A-Z_a-z\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD\\-.0-9\\u00B7\\u0300-\\u036F\\u203F-\\u2040]*$");
+	var illegalAttributeNameCache = {};
+	var validatedAttributeNameCache = {};
 	function isAttributeNameSafe(attributeName) {
 		if (hasOwnProperty.call(validatedAttributeNameCache, attributeName)) return !0;
 		if (hasOwnProperty.call(illegalAttributeNameCache, attributeName)) return !1;
@@ -1671,7 +1748,7 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 			default: return !0;
 		}
 	}
-	var aliases = new Map([
+	var aliases = /* @__PURE__ */ new Map([
 		["acceptCharset", "accept-charset"],
 		["htmlFor", "for"],
 		["httpEquiv", "http-equiv"],
@@ -1750,7 +1827,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		["writingMode", "writing-mode"],
 		["xmlnsXlink", "xmlns:xlink"],
 		["xHeight", "x-height"]
-	]), isJavaScriptProtocol = /^[\u0000-\u001F ]*j[\r\n\t]*a[\r\n\t]*v[\r\n\t]*a[\r\n\t]*s[\r\n\t]*c[\r\n\t]*r[\r\n\t]*i[\r\n\t]*p[\r\n\t]*t[\r\n\t]*:/i;
+	]);
+	var isJavaScriptProtocol = /^[\u0000-\u001F ]*j[\r\n\t]*a[\r\n\t]*v[\r\n\t]*a[\r\n\t]*s[\r\n\t]*c[\r\n\t]*r[\r\n\t]*i[\r\n\t]*p[\r\n\t]*t[\r\n\t]*:/i;
 	function sanitizeURL(url) {
 		return isJavaScriptProtocol.test("" + url) ? "javascript:throw new Error('React has blocked a javascript: URL as a security precaution.')" : url;
 	}
@@ -1761,7 +1839,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		nativeEvent.correspondingUseElement && (nativeEvent = nativeEvent.correspondingUseElement);
 		return 3 === nativeEvent.nodeType ? nativeEvent.parentNode : nativeEvent;
 	}
-	var restoreTarget = null, restoreQueue = null;
+	var restoreTarget = null;
+	var restoreQueue = null;
 	function restoreStateOfTarget(target) {
 		var internalInstance = getInstanceFromNode(target);
 		if (internalInstance && (target = internalInstance.stateNode)) {
@@ -1830,7 +1909,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		if (stateNode && "function" !== typeof stateNode) throw Error(formatProdErrorMessage(231, registrationName, typeof stateNode));
 		return stateNode;
 	}
-	var canUseDOM = !("undefined" === typeof window || "undefined" === typeof window.document || "undefined" === typeof window.document.createElement), passiveBrowserEventsSupported = !1;
+	var canUseDOM = !("undefined" === typeof window || "undefined" === typeof window.document || "undefined" === typeof window.document.createElement);
+	var passiveBrowserEventsSupported = !1;
 	if (canUseDOM) try {
 		var options = {};
 		Object.defineProperty(options, "passive", { get: function() {
@@ -1841,7 +1921,9 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 	} catch (e) {
 		passiveBrowserEventsSupported = !1;
 	}
-	var root = null, startText = null, fallbackText = null;
+	var root = null;
+	var startText = null;
+	var fallbackText = null;
 	function getData() {
 		if (fallbackText) return fallbackText;
 		var start, startValue = startText, startLength = startValue.length, end, endValue = "value" in root ? root.value : root.textContent, endLength = endValue.length;
@@ -1899,10 +1981,17 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		},
 		defaultPrevented: 0,
 		isTrusted: 0
-	}, SyntheticEvent = createSyntheticEvent(EventInterface), UIEventInterface = assign({}, EventInterface, {
+	};
+	var SyntheticEvent = createSyntheticEvent(EventInterface);
+	var UIEventInterface = assign({}, EventInterface, {
 		view: 0,
 		detail: 0
-	}), SyntheticUIEvent = createSyntheticEvent(UIEventInterface), lastMovementX, lastMovementY, lastMouseEvent, MouseEventInterface = assign({}, UIEventInterface, {
+	});
+	var SyntheticUIEvent = createSyntheticEvent(UIEventInterface);
+	var lastMovementX;
+	var lastMovementY;
+	var lastMouseEvent;
+	var MouseEventInterface = assign({}, UIEventInterface, {
 		screenX: 0,
 		screenY: 0,
 		clientX: 0,
@@ -1927,13 +2016,20 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		movementY: function(event) {
 			return "movementY" in event ? event.movementY : lastMovementY;
 		}
-	}), SyntheticMouseEvent = createSyntheticEvent(MouseEventInterface), SyntheticDragEvent = createSyntheticEvent(assign({}, MouseEventInterface, { dataTransfer: 0 })), SyntheticFocusEvent = createSyntheticEvent(assign({}, UIEventInterface, { relatedTarget: 0 })), SyntheticAnimationEvent = createSyntheticEvent(assign({}, EventInterface, {
+	});
+	var SyntheticMouseEvent = createSyntheticEvent(MouseEventInterface);
+	var SyntheticDragEvent = createSyntheticEvent(assign({}, MouseEventInterface, { dataTransfer: 0 }));
+	var SyntheticFocusEvent = createSyntheticEvent(assign({}, UIEventInterface, { relatedTarget: 0 }));
+	var SyntheticAnimationEvent = createSyntheticEvent(assign({}, EventInterface, {
 		animationName: 0,
 		elapsedTime: 0,
 		pseudoElement: 0
-	})), SyntheticClipboardEvent = createSyntheticEvent(assign({}, EventInterface, { clipboardData: function(event) {
+	}));
+	var SyntheticClipboardEvent = createSyntheticEvent(assign({}, EventInterface, { clipboardData: function(event) {
 		return "clipboardData" in event ? event.clipboardData : window.clipboardData;
-	} })), SyntheticCompositionEvent = createSyntheticEvent(assign({}, EventInterface, { data: 0 })), normalizeKey = {
+	} }));
+	var SyntheticCompositionEvent = createSyntheticEvent(assign({}, EventInterface, { data: 0 }));
+	var normalizeKey = {
 		Esc: "Escape",
 		Spacebar: " ",
 		Left: "ArrowLeft",
@@ -1946,7 +2042,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		Apps: "ContextMenu",
 		Scroll: "ScrollLock",
 		MozPrintableKey: "Unidentified"
-	}, translateToKey = {
+	};
+	var translateToKey = {
 		8: "Backspace",
 		9: "Tab",
 		12: "Clear",
@@ -1983,7 +2080,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		144: "NumLock",
 		145: "ScrollLock",
 		224: "Meta"
-	}, modifierKeyToProp = {
+	};
+	var modifierKeyToProp = {
 		Alt: "altKey",
 		Control: "ctrlKey",
 		Meta: "metaKey",
@@ -2022,7 +2120,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		which: function(event) {
 			return "keypress" === event.type ? getEventCharCode(event) : "keydown" === event.type || "keyup" === event.type ? event.keyCode : 0;
 		}
-	})), SyntheticPointerEvent = createSyntheticEvent(assign({}, MouseEventInterface, {
+	}));
+	var SyntheticPointerEvent = createSyntheticEvent(assign({}, MouseEventInterface, {
 		pointerId: 0,
 		width: 0,
 		height: 0,
@@ -2033,7 +2132,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		twist: 0,
 		pointerType: 0,
 		isPrimary: 0
-	})), SyntheticTouchEvent = createSyntheticEvent(assign({}, UIEventInterface, {
+	}));
+	var SyntheticTouchEvent = createSyntheticEvent(assign({}, UIEventInterface, {
 		touches: 0,
 		targetTouches: 0,
 		changedTouches: 0,
@@ -2042,11 +2142,13 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		ctrlKey: 0,
 		shiftKey: 0,
 		getModifierState: getEventModifierState
-	})), SyntheticTransitionEvent = createSyntheticEvent(assign({}, EventInterface, {
+	}));
+	var SyntheticTransitionEvent = createSyntheticEvent(assign({}, EventInterface, {
 		propertyName: 0,
 		elapsedTime: 0,
 		pseudoElement: 0
-	})), SyntheticWheelEvent = createSyntheticEvent(assign({}, MouseEventInterface, {
+	}));
+	var SyntheticWheelEvent = createSyntheticEvent(assign({}, MouseEventInterface, {
 		deltaX: function(event) {
 			return "deltaX" in event ? event.deltaX : "wheelDeltaX" in event ? -event.wheelDeltaX : 0;
 		},
@@ -2055,17 +2157,24 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		},
 		deltaZ: 0,
 		deltaMode: 0
-	})), SyntheticToggleEvent = createSyntheticEvent(assign({}, EventInterface, {
+	}));
+	var SyntheticToggleEvent = createSyntheticEvent(assign({}, EventInterface, {
 		newState: 0,
 		oldState: 0
-	})), END_KEYCODES = [
+	}));
+	var END_KEYCODES = [
 		9,
 		13,
 		27,
 		32
-	], canUseCompositionEvent = canUseDOM && "CompositionEvent" in window, documentMode = null;
+	];
+	var canUseCompositionEvent = canUseDOM && "CompositionEvent" in window;
+	var documentMode = null;
 	canUseDOM && "documentMode" in document && (documentMode = document.documentMode);
-	var canUseTextInputEvent = canUseDOM && "TextEvent" in window && !documentMode, useFallbackCompositionData = canUseDOM && (!canUseCompositionEvent || documentMode && 8 < documentMode && 11 >= documentMode), SPACEBAR_CHAR = String.fromCharCode(32), hasSpaceKeypress = !1;
+	var canUseTextInputEvent = canUseDOM && "TextEvent" in window && !documentMode;
+	var useFallbackCompositionData = canUseDOM && (!canUseCompositionEvent || documentMode && 8 < documentMode && 11 >= documentMode);
+	var SPACEBAR_CHAR = String.fromCharCode(32);
+	var hasSpaceKeypress = !1;
 	function isFallbackCompositionEnd(domEventName, nativeEvent) {
 		switch (domEventName) {
 			case "keyup": return -1 !== END_KEYCODES.indexOf(nativeEvent.keyCode);
@@ -2135,7 +2244,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 			listeners: inst
 		}));
 	}
-	var activeElement$1 = null, activeElementInst$1 = null;
+	var activeElement$1 = null;
+	var activeElementInst$1 = null;
 	function runEventInBatch(dispatchQueue) {
 		processDispatchQueue(dispatchQueue, 0);
 	}
@@ -2246,7 +2356,11 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		var nodeName = elem && elem.nodeName && elem.nodeName.toLowerCase();
 		return nodeName && ("input" === nodeName && ("text" === elem.type || "search" === elem.type || "tel" === elem.type || "url" === elem.type || "password" === elem.type) || "textarea" === nodeName || "true" === elem.contentEditable);
 	}
-	var skipSelectionChangeEvent = canUseDOM && "documentMode" in document && 11 >= document.documentMode, activeElement = null, activeElementInst = null, lastSelection = null, mouseDown = !1;
+	var skipSelectionChangeEvent = canUseDOM && "documentMode" in document && 11 >= document.documentMode;
+	var activeElement = null;
+	var activeElementInst = null;
+	var lastSelection = null;
+	var mouseDown = !1;
 	function constructSelectEvent(dispatchQueue, nativeEvent, nativeEventTarget) {
 		var doc = nativeEventTarget.window === nativeEventTarget ? nativeEventTarget.document : 9 === nativeEventTarget.nodeType ? nativeEventTarget : nativeEventTarget.ownerDocument;
 		mouseDown || null == activeElement || activeElement !== getActiveElement(doc) || (doc = activeElement, "selectionStart" in doc && hasSelectionCapabilities(doc) ? doc = {
@@ -2277,7 +2391,9 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		transitionstart: makePrefixMap("Transition", "TransitionStart"),
 		transitioncancel: makePrefixMap("Transition", "TransitionCancel"),
 		transitionend: makePrefixMap("Transition", "TransitionEnd")
-	}, prefixedEventNames = {}, style = {};
+	};
+	var prefixedEventNames = {};
+	var style = {};
 	canUseDOM && (style = document.createElement("div").style, "AnimationEvent" in window || (delete vendorPrefixes.animationend.animation, delete vendorPrefixes.animationiteration.animation, delete vendorPrefixes.animationstart.animation), "TransitionEvent" in window || delete vendorPrefixes.transitionend.transition);
 	function getVendorPrefixedEventName(eventName) {
 		if (prefixedEventNames[eventName]) return prefixedEventNames[eventName];
@@ -2286,7 +2402,15 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		for (styleProp in prefixMap) if (prefixMap.hasOwnProperty(styleProp) && styleProp in style) return prefixedEventNames[eventName] = prefixMap[styleProp];
 		return eventName;
 	}
-	var ANIMATION_END = getVendorPrefixedEventName("animationend"), ANIMATION_ITERATION = getVendorPrefixedEventName("animationiteration"), ANIMATION_START = getVendorPrefixedEventName("animationstart"), TRANSITION_RUN = getVendorPrefixedEventName("transitionrun"), TRANSITION_START = getVendorPrefixedEventName("transitionstart"), TRANSITION_CANCEL = getVendorPrefixedEventName("transitioncancel"), TRANSITION_END = getVendorPrefixedEventName("transitionend"), topLevelEventsToReactNames = /* @__PURE__ */ new Map(), simpleEventPluginEvents = "abort auxClick beforeToggle cancel canPlay canPlayThrough click close contextMenu copy cut drag dragEnd dragEnter dragExit dragLeave dragOver dragStart drop durationChange emptied encrypted ended error gotPointerCapture input invalid keyDown keyPress keyUp load loadedData loadedMetadata loadStart lostPointerCapture mouseDown mouseMove mouseOut mouseOver mouseUp paste pause play playing pointerCancel pointerDown pointerMove pointerOut pointerOver pointerUp progress rateChange reset resize seeked seeking stalled submit suspend timeUpdate touchCancel touchEnd touchStart volumeChange scroll toggle touchMove waiting wheel".split(" ");
+	var ANIMATION_END = getVendorPrefixedEventName("animationend");
+	var ANIMATION_ITERATION = getVendorPrefixedEventName("animationiteration");
+	var ANIMATION_START = getVendorPrefixedEventName("animationstart");
+	var TRANSITION_RUN = getVendorPrefixedEventName("transitionrun");
+	var TRANSITION_START = getVendorPrefixedEventName("transitionstart");
+	var TRANSITION_CANCEL = getVendorPrefixedEventName("transitioncancel");
+	var TRANSITION_END = getVendorPrefixedEventName("transitionend");
+	var topLevelEventsToReactNames = /* @__PURE__ */ new Map();
+	var simpleEventPluginEvents = "abort auxClick beforeToggle cancel canPlay canPlayThrough click close contextMenu copy cut drag dragEnd dragEnter dragExit dragLeave dragOver dragStart drop durationChange emptied encrypted ended error gotPointerCapture input invalid keyDown keyPress keyUp load loadedData loadedMetadata loadStart lostPointerCapture mouseDown mouseMove mouseOut mouseOver mouseUp paste pause play playing pointerCancel pointerDown pointerMove pointerOut pointerOver pointerUp progress rateChange reset resize seeked seeking stalled submit suspend timeUpdate touchCancel touchEnd touchStart volumeChange scroll toggle touchMove waiting wheel".split(" ");
 	simpleEventPluginEvents.push("scrollEnd");
 	function registerSimpleEvent(domEventName, reactName) {
 		topLevelEventsToReactNames.set(domEventName, reactName);
@@ -2306,7 +2430,10 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 			return;
 		}
 		console.error(error);
-	}, concurrentQueues = [], concurrentQueuesIndex = 0, concurrentlyUpdatedLanes = 0;
+	};
+	var concurrentQueues = [];
+	var concurrentQueuesIndex = 0;
+	var concurrentlyUpdatedLanes = 0;
 	function finishQueueingConcurrentUpdates() {
 		for (var endIndex = concurrentQueuesIndex, i = concurrentlyUpdatedLanes = concurrentQueuesIndex = 0; i < endIndex;) {
 			var fiber = concurrentQueues[i];
@@ -2495,7 +2622,15 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 			stack: getStackByFiberInDevAndProd(source)
 		};
 	}
-	var forkStack = [], forkStackIndex = 0, treeForkProvider = null, treeForkCount = 0, idStack = [], idStackIndex = 0, treeContextProvider = null, treeContextId = 1, treeContextOverflow = "";
+	var forkStack = [];
+	var forkStackIndex = 0;
+	var treeForkProvider = null;
+	var treeForkCount = 0;
+	var idStack = [];
+	var idStackIndex = 0;
+	var treeContextProvider = null;
+	var treeContextId = 1;
+	var treeContextOverflow = "";
 	function pushTreeFork(workInProgress, totalChildren) {
 		forkStack[forkStackIndex++] = treeForkCount;
 		forkStack[forkStackIndex++] = treeForkProvider;
@@ -2537,7 +2672,12 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		treeContextOverflow = suspendedContext.overflow;
 		treeContextProvider = workInProgress;
 	}
-	var hydrationParentFiber = null, nextHydratableInstance = null, isHydrating = !1, hydrationErrors = null, rootOrSingletonContext = !1, HydrationMismatchException = Error(formatProdErrorMessage(519));
+	var hydrationParentFiber = null;
+	var nextHydratableInstance = null;
+	var isHydrating = !1;
+	var hydrationErrors = null;
+	var rootOrSingletonContext = !1;
+	var HydrationMismatchException = Error(formatProdErrorMessage(519));
 	function throwOnHydrationMismatch(fiber) {
 		queueHydrationError(createCapturedValueAtFiber(Error(formatProdErrorMessage(418, 1 < arguments.length && void 0 !== arguments[1] && arguments[1] ? "text" : "HTML", "")), fiber));
 		throw HydrationMismatchException;
@@ -2634,7 +2774,9 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 	function queueHydrationError(error) {
 		null === hydrationErrors ? hydrationErrors = [error] : hydrationErrors.push(error);
 	}
-	var valueCursor = createCursor(null), currentlyRenderingFiber$1 = null, lastContextDependency = null;
+	var valueCursor = createCursor(null);
+	var currentlyRenderingFiber$1 = null;
+	var lastContextDependency = null;
 	function pushProvider(providerFiber, context, nextValue) {
 		push(valueCursor, context._currentValue);
 		context._currentValue = nextValue;
@@ -2774,7 +2916,10 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 				return listener();
 			});
 		};
-	}, scheduleCallback$2 = Scheduler.unstable_scheduleCallback, NormalPriority = Scheduler.unstable_NormalPriority, CacheContext = {
+	};
+	var scheduleCallback$2 = Scheduler.unstable_scheduleCallback;
+	var NormalPriority = Scheduler.unstable_NormalPriority;
+	var CacheContext = {
 		$$typeof: REACT_CONTEXT_TYPE,
 		Consumer: null,
 		Provider: null,
@@ -2795,7 +2940,10 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 			cache.controller.abort();
 		});
 	}
-	var currentEntangledListeners = null, currentEntangledPendingCount = 0, currentEntangledLane = 0, currentEntangledActionThenable = null;
+	var currentEntangledListeners = null;
+	var currentEntangledPendingCount = 0;
+	var currentEntangledLane = 0;
+	var currentEntangledActionThenable = null;
 	function entangleAsyncAction(transition, thenable) {
 		if (null === currentEntangledListeners) {
 			var entangledListeners = currentEntangledListeners = [];
@@ -2864,7 +3012,10 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 			pool: cacheFromPool
 		};
 	}
-	var SuspenseException = Error(formatProdErrorMessage(460)), SuspenseyCommitException = Error(formatProdErrorMessage(474)), SuspenseActionException = Error(formatProdErrorMessage(542)), noopSuspenseyCommitThenable = { then: function() {} };
+	var SuspenseException = Error(formatProdErrorMessage(460));
+	var SuspenseyCommitException = Error(formatProdErrorMessage(474));
+	var SuspenseActionException = Error(formatProdErrorMessage(542));
+	var noopSuspenseyCommitThenable = { then: function() {} };
 	function isThenableResolved(thenable) {
 		thenable = thenable.status;
 		return "fulfilled" === thenable || "rejected" === thenable;
@@ -2923,7 +3074,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 	function checkIfUseWrappedInAsyncCatch(rejectedReason) {
 		if (rejectedReason === SuspenseException || rejectedReason === SuspenseActionException) throw Error(formatProdErrorMessage(483));
 	}
-	var thenableState$1 = null, thenableIndexCounter$1 = 0;
+	var thenableState$1 = null;
+	var thenableIndexCounter$1 = 0;
 	function unwrapThenable(thenable) {
 		var index = thenableIndexCounter$1;
 		thenableIndexCounter$1 += 1;
@@ -3185,7 +3337,9 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 			}
 		};
 	}
-	var reconcileChildFibers = createChildReconciler(!0), mountChildFibers = createChildReconciler(!1), hasForceUpdate = !1;
+	var reconcileChildFibers = createChildReconciler(!0);
+	var mountChildFibers = createChildReconciler(!1);
+	var hasForceUpdate = !1;
 	function initializeUpdateQueue(fiber) {
 		fiber.updateQueue = {
 			baseState: fiber.memoizedState,
@@ -3367,7 +3521,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		var callbacks = updateQueue.callbacks;
 		if (null !== callbacks) for (updateQueue.callbacks = null, updateQueue = 0; updateQueue < callbacks.length; updateQueue++) callCallback(callbacks[updateQueue], context);
 	}
-	var currentTreeHiddenStackCursor = createCursor(null), prevEntangledRenderLanesCursor = createCursor(0);
+	var currentTreeHiddenStackCursor = createCursor(null);
+	var prevEntangledRenderLanesCursor = createCursor(0);
 	function pushHiddenContext(fiber, context) {
 		fiber = entangledRenderLanes;
 		push(prevEntangledRenderLanesCursor, fiber);
@@ -3383,7 +3538,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		pop(currentTreeHiddenStackCursor);
 		pop(prevEntangledRenderLanesCursor);
 	}
-	var suspenseHandlerStackCursor = createCursor(null), shellBoundary = null;
+	var suspenseHandlerStackCursor = createCursor(null);
+	var shellBoundary = null;
 	function pushPrimaryTreeSuspenseHandler(handler) {
 		var current = handler.alternate;
 		push(suspenseStackCursor, suspenseStackCursor.current & 1);
@@ -3430,7 +3586,17 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		}
 		return null;
 	}
-	var renderLanes = 0, currentlyRenderingFiber = null, currentHook = null, workInProgressHook = null, didScheduleRenderPhaseUpdate = !1, didScheduleRenderPhaseUpdateDuringThisPass = !1, shouldDoubleInvokeUserFnsInHooksDEV = !1, localIdCounter = 0, thenableIndexCounter = 0, thenableState = null, globalClientIdCounter = 0;
+	var renderLanes = 0;
+	var currentlyRenderingFiber = null;
+	var currentHook = null;
+	var workInProgressHook = null;
+	var didScheduleRenderPhaseUpdate = !1;
+	var didScheduleRenderPhaseUpdateDuringThisPass = !1;
+	var shouldDoubleInvokeUserFnsInHooksDEV = !1;
+	var localIdCounter = 0;
+	var thenableIndexCounter = 0;
+	var thenableState = null;
+	var globalClientIdCounter = 0;
 	function throwInvalidHookError() {
 		throw Error(formatProdErrorMessage(321));
 	}
@@ -4412,7 +4578,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 				return ref.impl.apply(void 0, arguments);
 			};
 		}
-	}, HooksDispatcherOnUpdate = {
+	};
+	var HooksDispatcherOnUpdate = {
 		readContext,
 		use,
 		useCallback: updateCallback,
@@ -4602,7 +4769,7 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		var inst = fiber.stateNode;
 		null !== inst && "function" === typeof inst.componentDidCatch && (update.callback = function() {
 			logCaughtError(root, fiber, errorInfo);
-			"function" !== typeof getDerivedStateFromError && (null === legacyErrorBoundariesThatAlreadyFailed ? legacyErrorBoundariesThatAlreadyFailed = new Set([this]) : legacyErrorBoundariesThatAlreadyFailed.add(this));
+			"function" !== typeof getDerivedStateFromError && (null === legacyErrorBoundariesThatAlreadyFailed ? legacyErrorBoundariesThatAlreadyFailed = /* @__PURE__ */ new Set([this]) : legacyErrorBoundariesThatAlreadyFailed.add(this));
 			var stack = errorInfo.stack;
 			this.componentDidCatch(errorInfo.value, { componentStack: null !== stack ? stack : "" });
 		});
@@ -4616,12 +4783,12 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 			if (null !== sourceFiber) {
 				switch (sourceFiber.tag) {
 					case 31:
-					case 13: return null === shellBoundary ? renderDidSuspendDelayIfPossible() : null === sourceFiber.alternate && 0 === workInProgressRootExitStatus && (workInProgressRootExitStatus = 3), sourceFiber.flags &= -257, sourceFiber.flags |= 65536, sourceFiber.lanes = rootRenderLanes, value === noopSuspenseyCommitThenable ? sourceFiber.flags |= 16384 : (returnFiber = sourceFiber.updateQueue, null === returnFiber ? sourceFiber.updateQueue = new Set([value]) : returnFiber.add(value), attachPingListener(root, value, rootRenderLanes)), !1;
+					case 13: return null === shellBoundary ? renderDidSuspendDelayIfPossible() : null === sourceFiber.alternate && 0 === workInProgressRootExitStatus && (workInProgressRootExitStatus = 3), sourceFiber.flags &= -257, sourceFiber.flags |= 65536, sourceFiber.lanes = rootRenderLanes, value === noopSuspenseyCommitThenable ? sourceFiber.flags |= 16384 : (returnFiber = sourceFiber.updateQueue, null === returnFiber ? sourceFiber.updateQueue = /* @__PURE__ */ new Set([value]) : returnFiber.add(value), attachPingListener(root, value, rootRenderLanes)), !1;
 					case 22: return sourceFiber.flags |= 65536, value === noopSuspenseyCommitThenable ? sourceFiber.flags |= 16384 : (returnFiber = sourceFiber.updateQueue, null === returnFiber ? (returnFiber = {
 						transitions: null,
 						markerInstances: null,
-						retryQueue: new Set([value])
-					}, sourceFiber.updateQueue = returnFiber) : (sourceFiber = returnFiber.retryQueue, null === sourceFiber ? returnFiber.retryQueue = new Set([value]) : sourceFiber.add(value)), attachPingListener(root, value, rootRenderLanes)), !1;
+						retryQueue: /* @__PURE__ */ new Set([value])
+					}, sourceFiber.updateQueue = returnFiber) : (sourceFiber = returnFiber.retryQueue, null === sourceFiber ? returnFiber.retryQueue = /* @__PURE__ */ new Set([value]) : sourceFiber.add(value)), attachPingListener(root, value, rootRenderLanes)), !1;
 				}
 				throw Error(formatProdErrorMessage(435, sourceFiber.tag));
 			}
@@ -4646,7 +4813,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		} while (null !== sourceFiber);
 		return !1;
 	}
-	var SelectiveHydrationException = Error(formatProdErrorMessage(461)), didReceiveUpdate = !1;
+	var SelectiveHydrationException = Error(formatProdErrorMessage(461));
+	var didReceiveUpdate = !1;
 	function reconcileChildren(current, workInProgress, nextChildren, renderLanes) {
 		workInProgress.child = null === current ? mountChildFibers(workInProgress, null, nextChildren, renderLanes) : reconcileChildFibers(workInProgress, current.child, nextChildren, renderLanes);
 	}
@@ -5839,7 +6007,11 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 			captureCommitPhaseError(finishedWork, finishedWork.return, error);
 		}
 	}
-	var offscreenSubtreeIsHidden = !1, offscreenSubtreeWasHidden = !1, needsFormReset = !1, PossiblyWeakSet = "function" === typeof WeakSet ? WeakSet : Set, nextEffect = null;
+	var offscreenSubtreeIsHidden = !1;
+	var offscreenSubtreeWasHidden = !1;
+	var needsFormReset = !1;
+	var PossiblyWeakSet = "function" === typeof WeakSet ? WeakSet : Set;
+	var nextEffect = null;
 	function commitBeforeMutationEffects(root, firstChild) {
 		root = root.containerInfo;
 		eventsEnabled = _enabled;
@@ -6052,7 +6224,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		fiber.stateNode = null;
 		fiber.updateQueue = null;
 	}
-	var hostParent = null, hostParentIsContainer = !1;
+	var hostParent = null;
+	var hostParentIsContainer = !1;
 	function recursivelyTraverseDeletionEffects(finishedRoot, nearestMountedAncestor, parent) {
 		for (parent = parent.child; null !== parent;) commitDeletionEffectsOnFiber(finishedRoot, nearestMountedAncestor, parent), parent = parent.sibling;
 	}
@@ -6811,7 +6984,41 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		cacheSignal: function() {
 			return readContext(CacheContext).controller.signal;
 		}
-	}, PossiblyWeakMap = "function" === typeof WeakMap ? WeakMap : Map, executionContext = 0, workInProgressRoot = null, workInProgress = null, workInProgressRootRenderLanes = 0, workInProgressSuspendedReason = 0, workInProgressThrownValue = null, workInProgressRootDidSkipSuspendedSiblings = !1, workInProgressRootIsPrerendering = !1, workInProgressRootDidAttachPingListener = !1, entangledRenderLanes = 0, workInProgressRootExitStatus = 0, workInProgressRootSkippedLanes = 0, workInProgressRootInterleavedUpdatedLanes = 0, workInProgressRootPingedLanes = 0, workInProgressDeferredLane = 0, workInProgressSuspendedRetryLanes = 0, workInProgressRootConcurrentErrors = null, workInProgressRootRecoverableErrors = null, workInProgressRootDidIncludeRecursiveRenderUpdate = !1, globalMostRecentFallbackTime = 0, globalMostRecentTransitionTime = 0, workInProgressRootRenderTargetTime = Infinity, workInProgressTransitions = null, legacyErrorBoundariesThatAlreadyFailed = null, pendingEffectsStatus = 0, pendingEffectsRoot = null, pendingFinishedWork = null, pendingEffectsLanes = 0, pendingEffectsRemainingLanes = 0, pendingPassiveTransitions = null, pendingRecoverableErrors = null, nestedUpdateCount = 0, rootWithNestedUpdates = null;
+	};
+	var PossiblyWeakMap = "function" === typeof WeakMap ? WeakMap : Map;
+	var executionContext = 0;
+	var workInProgressRoot = null;
+	var workInProgress = null;
+	var workInProgressRootRenderLanes = 0;
+	var workInProgressSuspendedReason = 0;
+	var workInProgressThrownValue = null;
+	var workInProgressRootDidSkipSuspendedSiblings = !1;
+	var workInProgressRootIsPrerendering = !1;
+	var workInProgressRootDidAttachPingListener = !1;
+	var entangledRenderLanes = 0;
+	var workInProgressRootExitStatus = 0;
+	var workInProgressRootSkippedLanes = 0;
+	var workInProgressRootInterleavedUpdatedLanes = 0;
+	var workInProgressRootPingedLanes = 0;
+	var workInProgressDeferredLane = 0;
+	var workInProgressSuspendedRetryLanes = 0;
+	var workInProgressRootConcurrentErrors = null;
+	var workInProgressRootRecoverableErrors = null;
+	var workInProgressRootDidIncludeRecursiveRenderUpdate = !1;
+	var globalMostRecentFallbackTime = 0;
+	var globalMostRecentTransitionTime = 0;
+	var workInProgressRootRenderTargetTime = Infinity;
+	var workInProgressTransitions = null;
+	var legacyErrorBoundariesThatAlreadyFailed = null;
+	var pendingEffectsStatus = 0;
+	var pendingEffectsRoot = null;
+	var pendingFinishedWork = null;
+	var pendingEffectsLanes = 0;
+	var pendingEffectsRemainingLanes = 0;
+	var pendingPassiveTransitions = null;
+	var pendingRecoverableErrors = null;
+	var nestedUpdateCount = 0;
+	var rootWithNestedUpdates = null;
 	function requestUpdateLane() {
 		return 0 !== (executionContext & 2) && 0 !== workInProgressRootRenderLanes ? workInProgressRootRenderLanes & -workInProgressRootRenderLanes : null !== ReactSharedInternals.T ? requestTransitionLane() : resolveUpdatePriority();
 	}
@@ -7542,7 +7749,12 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 	function scheduleCallback$1(priorityLevel, callback) {
 		return scheduleCallback$3(priorityLevel, callback);
 	}
-	var firstScheduledRoot = null, lastScheduledRoot = null, didScheduleMicrotask = !1, mightHavePendingSyncWork = !1, isFlushingWork = !1, currentEventTransitionLane = 0;
+	var firstScheduledRoot = null;
+	var lastScheduledRoot = null;
+	var didScheduleMicrotask = !1;
+	var mightHavePendingSyncWork = !1;
+	var isFlushingWork = !1;
+	var currentEventTransitionLane = 0;
 	function ensureRootIsScheduled(root) {
 		root !== lastScheduledRoot && null === root.next && (null === lastScheduledRoot ? firstScheduledRoot = lastScheduledRoot = root : lastScheduledRoot = lastScheduledRoot.next = root);
 		mightHavePendingSyncWork = !0;
@@ -7730,7 +7942,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 	registerTwoPhaseEvent("onCompositionEnd", "compositionend focusout keydown keypress keyup mousedown".split(" "));
 	registerTwoPhaseEvent("onCompositionStart", "compositionstart focusout keydown keypress keyup mousedown".split(" "));
 	registerTwoPhaseEvent("onCompositionUpdate", "compositionupdate focusout keydown keypress keyup mousedown".split(" "));
-	var mediaEventTypes = "abort canplay canplaythrough durationchange emptied encrypted ended error loadeddata loadedmetadata loadstart pause play playing progress ratechange resize seeked seeking stalled suspend timeupdate volumechange waiting".split(" "), nonDelegatedEvents = new Set("beforetoggle cancel close invalid load scroll scrollend toggle".split(" ").concat(mediaEventTypes));
+	var mediaEventTypes = "abort canplay canplaythrough durationchange emptied encrypted ended error loadeddata loadedmetadata loadstart pause play playing progress ratechange resize seeked seeking stalled suspend timeupdate volumechange waiting".split(" ");
+	var nonDelegatedEvents = new Set("beforetoggle cancel close invalid load scroll scrollend toggle".split(" ").concat(mediaEventTypes));
 	function processDispatchQueue(dispatchQueue, eventSystemFlags) {
 		eventSystemFlags = 0 !== (eventSystemFlags & 4);
 		for (var i = 0; i < dispatchQueue.length; i++) {
@@ -8091,7 +8304,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 			listeners
 		});
 	}
-	var NORMALIZE_NEWLINES_REGEX = /\r\n?/g, NORMALIZE_NULL_AND_REPLACEMENT_REGEX = /\u0000|\uFFFD/g;
+	var NORMALIZE_NEWLINES_REGEX = /\r\n?/g;
+	var NORMALIZE_NULL_AND_REPLACEMENT_REGEX = /\u0000|\uFFFD/g;
 	function normalizeMarkupForTextOrAttribute(markup) {
 		return ("string" === typeof markup ? markup : "" + markup).replace(NORMALIZE_NEWLINES_REGEX, "\n").replace(NORMALIZE_NULL_AND_REPLACEMENT_REGEX, "");
 	}
@@ -8658,7 +8872,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		}
 		return navigator.connection && (count = navigator.connection.downlink, "number" === typeof count) ? count : 5;
 	}
-	var eventsEnabled = null, selectionInformation = null;
+	var eventsEnabled = null;
+	var selectionInformation = null;
 	function getOwnerDocumentFromRootContainer(rootContainerElement) {
 		return 9 === rootContainerElement.nodeType ? rootContainerElement : rootContainerElement.ownerDocument;
 	}
@@ -8691,7 +8906,10 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		currentPopstateTransitionEvent = null;
 		return !1;
 	}
-	var scheduleTimeout = "function" === typeof setTimeout ? setTimeout : void 0, cancelTimeout = "function" === typeof clearTimeout ? clearTimeout : void 0, localPromise = "function" === typeof Promise ? Promise : void 0, scheduleMicrotask = "function" === typeof queueMicrotask ? queueMicrotask : "undefined" !== typeof localPromise ? function(callback) {
+	var scheduleTimeout = "function" === typeof setTimeout ? setTimeout : void 0;
+	var cancelTimeout = "function" === typeof clearTimeout ? clearTimeout : void 0;
+	var localPromise = "function" === typeof Promise ? Promise : void 0;
+	var scheduleMicrotask = "function" === typeof queueMicrotask ? queueMicrotask : "undefined" !== typeof localPromise ? function(callback) {
 		return localPromise.resolve(null).then(callback).catch(handleErrorInNextTick);
 	} : scheduleTimeout;
 	function handleErrorInNextTick(error) {
@@ -8892,7 +9110,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		for (var attributes = instance.attributes; attributes.length;) instance.removeAttributeNode(attributes[0]);
 		detachDeletedInstance(instance);
 	}
-	var preloadPropsMap = /* @__PURE__ */ new Map(), preconnectsSet = /* @__PURE__ */ new Set();
+	var preloadPropsMap = /* @__PURE__ */ new Map();
+	var preconnectsSet = /* @__PURE__ */ new Set();
 	function getHoistableRoot(container) {
 		return "function" === typeof container.getRootNode ? container.getRootNode() : 9 === container.nodeType ? container : container.ownerDocument;
 	}
@@ -9630,7 +9849,14 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 			default: return 32;
 		}
 	}
-	var hasScheduledReplayAttempt = !1, queuedFocus = null, queuedDrag = null, queuedMouse = null, queuedPointers = /* @__PURE__ */ new Map(), queuedPointerCaptures = /* @__PURE__ */ new Map(), queuedExplicitHydrationTargets = [], discreteReplayableEvents = "mousedown mouseup touchcancel touchend touchstart auxclick dblclick pointercancel pointerdown pointerup dragend dragstart drop compositionend compositionstart keydown keypress keyup input textInput copy cut paste click change contextmenu reset".split(" ");
+	var hasScheduledReplayAttempt = !1;
+	var queuedFocus = null;
+	var queuedDrag = null;
+	var queuedMouse = null;
+	var queuedPointers = /* @__PURE__ */ new Map();
+	var queuedPointerCaptures = /* @__PURE__ */ new Map();
+	var queuedExplicitHydrationTargets = [];
+	var discreteReplayableEvents = "mousedown mouseup touchcancel touchend touchstart auxclick dblclick pointercancel pointerdown pointerup dragend dragstart drop compositionend compositionstart keydown keypress keyup input textInput copy cut paste click change contextmenu reset".split(" ");
 	function clearIfContinuousEvent(domEventName, nativeEvent) {
 		switch (domEventName) {
 			case "focusin":
@@ -9897,8 +10123,7 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		return new ReactDOMRoot(options);
 	};
 }));
-//#endregion
-//#region node_modules/react-dom/client.js
+// node_modules/react-dom/client.js
 var require_client = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	function checkDCE() {
 		if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === "undefined" || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== "function") return;
@@ -9911,8 +10136,7 @@ var require_client = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	checkDCE();
 	module.exports = require_react_dom_client_production();
 }));
-//#endregion
-//#region node_modules/@tanstack/query-core/build/modern/subscribable.js
+// node_modules/@tanstack/query-core/build/modern/subscribable.js
 var Subscribable = class {
 	constructor() {
 		this.listeners = /* @__PURE__ */ new Set();
@@ -9932,8 +10156,7 @@ var Subscribable = class {
 	onSubscribe() {}
 	onUnsubscribe() {}
 };
-//#endregion
-//#region node_modules/@tanstack/query-core/build/modern/focusManager.js
+// node_modules/@tanstack/query-core/build/modern/focusManager.js
 var FocusManager = class extends Subscribable {
 	#focused;
 	#cleanup;
@@ -9985,8 +10208,7 @@ var FocusManager = class extends Subscribable {
 	}
 };
 var focusManager = new FocusManager();
-//#endregion
-//#region node_modules/@tanstack/query-core/build/modern/timeoutManager.js
+// node_modules/@tanstack/query-core/build/modern/timeoutManager.js
 var defaultTimeoutProvider = {
 	setTimeout: (callback, delay) => setTimeout(callback, delay),
 	clearTimeout: (timeoutId) => clearTimeout(timeoutId),
@@ -10016,8 +10238,7 @@ var timeoutManager = new TimeoutManager();
 function systemSetTimeoutZero(callback) {
 	setTimeout(callback, 0);
 }
-//#endregion
-//#region node_modules/@tanstack/query-core/build/modern/utils.js
+// node_modules/@tanstack/query-core/build/modern/utils.js
 var isServer = typeof window === "undefined" || "Deno" in globalThis;
 function noop$2() {}
 function functionalUpdate(updater, input) {
@@ -10174,8 +10395,7 @@ function addConsumeAwareSignal(object, getSignal, onCancelled) {
 	});
 	return object;
 }
-//#endregion
-//#region node_modules/@tanstack/query-core/build/modern/environmentManager.js
+// node_modules/@tanstack/query-core/build/modern/environmentManager.js
 var environmentManager = /* @__PURE__ */ (() => {
 	let isServerFn = () => isServer;
 	return {
@@ -10193,8 +10413,7 @@ var environmentManager = /* @__PURE__ */ (() => {
 		}
 	};
 })();
-//#endregion
-//#region node_modules/@tanstack/query-core/build/modern/thenable.js
+// node_modules/@tanstack/query-core/build/modern/thenable.js
 function pendingThenable() {
 	let resolve;
 	let reject;
@@ -10225,8 +10444,7 @@ function pendingThenable() {
 	};
 	return thenable;
 }
-//#endregion
-//#region node_modules/@tanstack/query-core/build/modern/notifyManager.js
+// node_modules/@tanstack/query-core/build/modern/notifyManager.js
 var defaultScheduler = systemSetTimeoutZero;
 function createNotifyManager() {
 	let queue = [];
@@ -10298,8 +10516,7 @@ function createNotifyManager() {
 	};
 }
 var notifyManager = createNotifyManager();
-//#endregion
-//#region node_modules/@tanstack/query-core/build/modern/onlineManager.js
+// node_modules/@tanstack/query-core/build/modern/onlineManager.js
 var OnlineManager = class extends Subscribable {
 	#online = true;
 	#cleanup;
@@ -10346,8 +10563,7 @@ var OnlineManager = class extends Subscribable {
 	}
 };
 var onlineManager = new OnlineManager();
-//#endregion
-//#region node_modules/@tanstack/query-core/build/modern/retryer.js
+// node_modules/@tanstack/query-core/build/modern/retryer.js
 function defaultRetryDelay(failureCount) {
 	return Math.min(1e3 * 2 ** failureCount, 3e4);
 }
@@ -10452,8 +10668,7 @@ function createRetryer(config) {
 		}
 	};
 }
-//#endregion
-//#region node_modules/@tanstack/query-core/build/modern/removable.js
+// node_modules/@tanstack/query-core/build/modern/removable.js
 var Removable = class {
 	#gcTimeout;
 	destroy() {
@@ -10466,7 +10681,7 @@ var Removable = class {
 		}, this.gcTime);
 	}
 	updateGcTime(newGcTime) {
-		this.gcTime = Math.max(this.gcTime || 0, newGcTime ?? (environmentManager.isServer() ? Infinity : 300 * 1e3));
+		this.gcTime = Math.max(this.gcTime || 0, newGcTime ?? (environmentManager.isServer() ? Infinity : 3e5));
 	}
 	clearGcTimeout() {
 		if (this.#gcTimeout !== void 0) {
@@ -10475,8 +10690,7 @@ var Removable = class {
 		}
 	}
 };
-//#endregion
-//#region node_modules/@tanstack/query-core/build/modern/infiniteQueryBehavior.js
+// node_modules/@tanstack/query-core/build/modern/infiniteQueryBehavior.js
 function infiniteQueryBehavior(pages) {
 	return { onFetch: (context, query) => {
 		const options = context.options;
@@ -10508,7 +10722,8 @@ function infiniteQueryBehavior(pages) {
 					addSignalProperty(queryFnContext2);
 					return queryFnContext2;
 				};
-				const page = await queryFn(createQueryFnContext());
+				const queryFnContext = createQueryFnContext();
+				const page = await queryFn(queryFnContext);
 				const { maxPages } = context.options;
 				const addTo = previous ? addToStart : addToEnd;
 				return {
@@ -10553,8 +10768,7 @@ function getNextPageParam(options, { pages, pageParams }) {
 function getPreviousPageParam(options, { pages, pageParams }) {
 	return pages.length > 0 ? options.getPreviousPageParam?.(pages[0], pages, pageParams[0], pageParams) : void 0;
 }
-//#endregion
-//#region node_modules/@tanstack/query-core/build/modern/query.js
+// node_modules/@tanstack/query-core/build/modern/query.js
 var Query = class extends Removable {
 	#queryType;
 	#initialState;
@@ -10684,8 +10898,10 @@ var Query = class extends Removable {
 		if (this.observers.includes(observer)) {
 			this.observers = this.observers.filter((x) => x !== observer);
 			if (!this.observers.length) {
-				if (this.#retryer) if (this.#abortSignalConsumed || this.#isInitialPausedFetch()) this.#retryer.cancel({ revert: true });
-				else this.#retryer.cancelRetry();
+				if (this.#retryer) {
+					if (this.#abortSignalConsumed || this.#isInitialPausedFetch()) this.#retryer.cancel({ revert: true });
+					else this.#retryer.cancelRetry();
+				}
 				this.scheduleGc();
 			}
 			this.#cache.notify({
@@ -10925,8 +11141,7 @@ function getDefaultState$1(options) {
 		fetchStatus: "idle"
 	};
 }
-//#endregion
-//#region node_modules/@tanstack/query-core/build/modern/queryObserver.js
+// node_modules/@tanstack/query-core/build/modern/queryObserver.js
 var QueryObserver = class extends Subscribable {
 	constructor(client, options) {
 		super();
@@ -11122,15 +11337,17 @@ var QueryObserver = class extends Subscribable {
 				isPlaceholderData = true;
 			}
 		}
-		if (options.select && data !== void 0 && !skipSelect) if (prevResult && data === prevResultState?.data && options.select === this.#selectFn) data = this.#selectResult;
-		else try {
-			this.#selectFn = options.select;
-			data = options.select(data);
-			data = replaceData(prevResult?.data, data, options);
-			this.#selectResult = data;
-			this.#selectError = null;
-		} catch (selectError) {
-			this.#selectError = selectError;
+		if (options.select && data !== void 0 && !skipSelect) {
+			if (prevResult && data === prevResultState?.data && options.select === this.#selectFn) data = this.#selectResult;
+			else try {
+				this.#selectFn = options.select;
+				data = options.select(data);
+				data = replaceData(prevResult?.data, data, options);
+				this.#selectResult = data;
+				this.#selectError = null;
+			} catch (selectError) {
+				this.#selectError = selectError;
+			}
 		}
 		if (this.#selectError) {
 			error = this.#selectError;
@@ -11179,7 +11396,8 @@ var QueryObserver = class extends Subscribable {
 				else if (hasResultData) thenable.resolve(nextResult.data);
 			};
 			const recreateThenable = () => {
-				finalizeThenableIfPossible(this.#currentThenable = nextResult.promise = pendingThenable());
+				const pending = this.#currentThenable = nextResult.promise = pendingThenable();
+				finalizeThenableIfPossible(pending);
 			};
 			const prevThenable = this.#currentThenable;
 			switch (prevThenable.status) {
@@ -11189,9 +11407,7 @@ var QueryObserver = class extends Subscribable {
 				case "fulfilled":
 					if (isErrorWithoutData || nextResult.data !== prevThenable.value) recreateThenable();
 					break;
-				case "rejected":
-					if (!isErrorWithoutData || nextResult.error !== prevThenable.reason) recreateThenable();
-					break;
+				case "rejected": if (!isErrorWithoutData || nextResult.error !== prevThenable.reason) recreateThenable();
 			}
 		}
 		return nextResult;
@@ -11268,8 +11484,7 @@ function shouldAssignObserverCurrentProperties(observer, optimisticResult) {
 	if (!shallowEqualObjects(observer.getCurrentResult(), optimisticResult)) return true;
 	return false;
 }
-//#endregion
-//#region node_modules/@tanstack/query-core/build/modern/mutation.js
+// node_modules/@tanstack/query-core/build/modern/mutation.js
 var Mutation = class extends Removable {
 	#client;
 	#observers;
@@ -11313,8 +11528,10 @@ var Mutation = class extends Removable {
 		});
 	}
 	optionalRemove() {
-		if (!this.#observers.length) if (this.state.status === "pending") this.scheduleGc();
-		else this.#mutationCache.remove(this);
+		if (!this.#observers.length) {
+			if (this.state.status === "pending") this.scheduleGc();
+			else this.#mutationCache.remove(this);
+		}
 	}
 	continue() {
 		return this.#retryer?.continue() ?? this.execute(this.state.variables);
@@ -11482,8 +11699,7 @@ function getDefaultState() {
 		submittedAt: 0
 	};
 }
-//#endregion
-//#region node_modules/@tanstack/query-core/build/modern/mutationCache.js
+// node_modules/@tanstack/query-core/build/modern/mutationCache.js
 var MutationCache = class extends Subscribable {
 	constructor(config = {}) {
 		super();
@@ -11589,8 +11805,7 @@ var MutationCache = class extends Subscribable {
 function scopeFor(mutation) {
 	return mutation.options.scope?.id;
 }
-//#endregion
-//#region node_modules/@tanstack/query-core/build/modern/mutationObserver.js
+// node_modules/@tanstack/query-core/build/modern/mutationObserver.js
 var MutationObserver$1 = class extends Subscribable {
 	#client;
 	#currentResult = void 0;
@@ -11693,8 +11908,7 @@ var MutationObserver$1 = class extends Subscribable {
 		});
 	}
 };
-//#endregion
-//#region node_modules/@tanstack/query-core/build/modern/queryCache.js
+// node_modules/@tanstack/query-core/build/modern/queryCache.js
 var QueryCache = class extends Subscribable {
 	constructor(config = {}) {
 		super();
@@ -11785,8 +11999,7 @@ var QueryCache = class extends Subscribable {
 		});
 	}
 };
-//#endregion
-//#region node_modules/@tanstack/query-core/build/modern/queryClient.js
+// node_modules/@tanstack/query-core/build/modern/queryClient.js
 var QueryClient = class {
 	#queryCache;
 	#mutationCache;
@@ -12026,8 +12239,7 @@ var QueryClient = class {
 		this.#mutationCache.clear();
 	}
 };
-//#endregion
-//#region node_modules/react/cjs/react-jsx-runtime.production.js
+// node_modules/react/cjs/react-jsx-runtime.production.js
 /**
 * @license React
 * react-jsx-runtime.production.js
@@ -12038,7 +12250,8 @@ var QueryClient = class {
 * LICENSE file in the root directory of this source tree.
 */
 var require_react_jsx_runtime_production = /* @__PURE__ */ __commonJSMin(((exports) => {
-	var REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
+	var REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element");
+	var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
 	function jsxProd(type, config, maybeKey) {
 		var key = null;
 		void 0 !== maybeKey && (key = "" + maybeKey);
@@ -12060,13 +12273,11 @@ var require_react_jsx_runtime_production = /* @__PURE__ */ __commonJSMin(((expor
 	exports.jsx = jsxProd;
 	exports.jsxs = jsxProd;
 }));
-//#endregion
-//#region node_modules/react/jsx-runtime.js
+// node_modules/react/jsx-runtime.js
 var require_jsx_runtime = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	module.exports = require_react_jsx_runtime_production();
 }));
-//#endregion
-//#region node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js
+// node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js
 var import_react = /* @__PURE__ */ __toESM(require_react(), 1);
 var import_jsx_runtime = require_jsx_runtime();
 var QueryClientContext = import_react.createContext(void 0);
@@ -12088,13 +12299,11 @@ var QueryClientProvider = ({ client, children }) => {
 		children
 	});
 };
-//#endregion
-//#region node_modules/@tanstack/react-query/build/modern/IsRestoringProvider.js
+// node_modules/@tanstack/react-query/build/modern/IsRestoringProvider.js
 var IsRestoringContext = import_react.createContext(false);
 var useIsRestoring = () => import_react.useContext(IsRestoringContext);
 IsRestoringContext.Provider;
-//#endregion
-//#region node_modules/@tanstack/react-query/build/modern/QueryErrorResetBoundary.js
+// node_modules/@tanstack/react-query/build/modern/QueryErrorResetBoundary.js
 function createValue() {
 	let isReset = false;
 	return {
@@ -12111,8 +12320,7 @@ function createValue() {
 }
 var QueryErrorResetBoundaryContext = import_react.createContext(createValue());
 var useQueryErrorResetBoundary = () => import_react.useContext(QueryErrorResetBoundaryContext);
-//#endregion
-//#region node_modules/@tanstack/react-query/build/modern/errorBoundaryUtils.js
+// node_modules/@tanstack/react-query/build/modern/errorBoundaryUtils.js
 var ensurePreventErrorBoundaryRetry = (options, errorResetBoundary, query) => {
 	const throwOnError = query?.state.error && typeof options.throwOnError === "function" ? shouldThrowError(options.throwOnError, [query.state.error, query]) : options.throwOnError;
 	if (options.suspense || options.experimental_prefetchInRender || throwOnError) {
@@ -12127,8 +12335,7 @@ var useClearResetErrorBoundary = (errorResetBoundary) => {
 var getHasError = ({ result, errorResetBoundary, throwOnError, query, suspense }) => {
 	return result.isError && !errorResetBoundary.isReset() && !result.isFetching && query && (suspense && result.data === void 0 || shouldThrowError(throwOnError, [result.error, query]));
 };
-//#endregion
-//#region node_modules/@tanstack/react-query/build/modern/suspense.js
+// node_modules/@tanstack/react-query/build/modern/suspense.js
 var ensureSuspenseTimers = (defaultedOptions) => {
 	if (defaultedOptions.suspense) {
 		const MIN_SUSPENSE_TIME_MS = 1e3;
@@ -12143,8 +12350,7 @@ var shouldSuspend = (defaultedOptions, result) => defaultedOptions?.suspense && 
 var fetchOptimistic = (defaultedOptions, observer, errorResetBoundary) => observer.fetchOptimistic(defaultedOptions).catch(() => {
 	errorResetBoundary.clearReset();
 });
-//#endregion
-//#region node_modules/@tanstack/react-query/build/modern/useBaseQuery.js
+// node_modules/@tanstack/react-query/build/modern/useBaseQuery.js
 function useBaseQuery(options, Observer, queryClient) {
 	const isRestoring = useIsRestoring();
 	const errorResetBoundary = useQueryErrorResetBoundary();
@@ -12183,13 +12389,11 @@ function useBaseQuery(options, Observer, queryClient) {
 	});
 	return !defaultedOptions.notifyOnChangeProps ? observer.trackResult(result) : result;
 }
-//#endregion
-//#region node_modules/@tanstack/react-query/build/modern/useQuery.js
+// node_modules/@tanstack/react-query/build/modern/useQuery.js
 function useQuery(options, queryClient) {
 	return useBaseQuery(options, QueryObserver, queryClient);
 }
-//#endregion
-//#region node_modules/@tanstack/react-query/build/modern/useMutation.js
+// node_modules/@tanstack/react-query/build/modern/useMutation.js
 function useMutation(options, queryClient) {
 	const client = useQueryClient(queryClient);
 	const [observer] = import_react.useState(() => new MutationObserver$1(client, options));
@@ -12207,11 +12411,9 @@ function useMutation(options, queryClient) {
 		mutateAsync: result.mutate
 	};
 }
-//#endregion
-//#region node_modules/@fontsource/zen-old-mincho/latin-500.css
+// node_modules/@fontsource/zen-old-mincho/latin-500.css
 var import_client = require_client();
-//#endregion
-//#region node_modules/tslib/tslib.es6.mjs
+// node_modules/tslib/tslib.es6.mjs
 var __assign = function() {
 	__assign = Object.assign || function __assign(t) {
 		for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -12266,14 +12468,12 @@ function __spreadArray(to, from, pack) {
 	}
 	return to.concat(ar || Array.prototype.slice.call(from));
 }
-//#endregion
-//#region node_modules/@supabase/functions-js/dist/module/helper.js
+// node_modules/@supabase/functions-js/dist/module/helper.js
 var resolveFetch$3 = (customFetch) => {
 	if (customFetch) return (...args) => customFetch(...args);
 	return (...args) => fetch(...args);
 };
-//#endregion
-//#region node_modules/@supabase/functions-js/dist/module/types.js
+// node_modules/@supabase/functions-js/dist/module/types.js
 /**
 * Base error for Supabase Edge Function invocations.
 *
@@ -12363,8 +12563,7 @@ var FunctionRegion;
 	FunctionRegion["UsWest1"] = "us-west-1";
 	FunctionRegion["UsWest2"] = "us-west-2";
 })(FunctionRegion || (FunctionRegion = {}));
-//#endregion
-//#region node_modules/@supabase/functions-js/dist/module/FunctionsClient.js
+// node_modules/@supabase/functions-js/dist/module/FunctionsClient.js
 /**
 * Client for invoking Supabase Edge Functions.
 */
@@ -12553,18 +12752,19 @@ var FunctionsClient = class {
 					url.searchParams.set("forceFunctionRegion", region);
 				}
 				let body;
-				if (functionArgs && (headers && !Object.prototype.hasOwnProperty.call(headers, "Content-Type") || !headers)) if (typeof Blob !== "undefined" && functionArgs instanceof Blob || functionArgs instanceof ArrayBuffer) {
-					_headers["Content-Type"] = "application/octet-stream";
-					body = functionArgs;
-				} else if (typeof functionArgs === "string") {
-					_headers["Content-Type"] = "text/plain";
-					body = functionArgs;
-				} else if (typeof FormData !== "undefined" && functionArgs instanceof FormData) body = functionArgs;
-				else {
-					_headers["Content-Type"] = "application/json";
-					body = JSON.stringify(functionArgs);
-				}
-				else if (functionArgs && typeof functionArgs !== "string" && !(typeof Blob !== "undefined" && functionArgs instanceof Blob) && !(functionArgs instanceof ArrayBuffer) && !(typeof FormData !== "undefined" && functionArgs instanceof FormData)) body = JSON.stringify(functionArgs);
+				if (functionArgs && (headers && !Object.prototype.hasOwnProperty.call(headers, "Content-Type") || !headers)) {
+					if (typeof Blob !== "undefined" && functionArgs instanceof Blob || functionArgs instanceof ArrayBuffer) {
+						_headers["Content-Type"] = "application/octet-stream";
+						body = functionArgs;
+					} else if (typeof functionArgs === "string") {
+						_headers["Content-Type"] = "text/plain";
+						body = functionArgs;
+					} else if (typeof FormData !== "undefined" && functionArgs instanceof FormData) body = functionArgs;
+					else {
+						_headers["Content-Type"] = "application/json";
+						body = JSON.stringify(functionArgs);
+					}
+				} else if (functionArgs && typeof functionArgs !== "string" && !(typeof Blob !== "undefined" && functionArgs instanceof Blob) && !(functionArgs instanceof ArrayBuffer) && !(typeof FormData !== "undefined" && functionArgs instanceof FormData)) body = JSON.stringify(functionArgs);
 				else body = functionArgs;
 				let effectiveSignal = signal;
 				if (timeout) {
@@ -12610,8 +12810,7 @@ var FunctionsClient = class {
 		});
 	}
 };
-//#endregion
-//#region node_modules/@supabase/postgrest-js/dist/index.mjs
+// node_modules/@supabase/postgrest-js/dist/index.mjs
 /**
 * Default number of retry attempts.
 */
@@ -17723,8 +17922,7 @@ var PostgrestClient = class PostgrestClient {
 		});
 	}
 };
-//#endregion
-//#region node_modules/@supabase/realtime-js/dist/module/lib/websocket-factory.js
+// node_modules/@supabase/realtime-js/dist/module/lib/websocket-factory.js
 /**
 * Utilities for creating WebSocket instances across runtimes.
 */
@@ -17833,8 +18031,7 @@ var WebSocketFactory = class {
 		}
 	}
 };
-//#endregion
-//#region node_modules/@supabase/realtime-js/dist/module/lib/constants.js
+// node_modules/@supabase/realtime-js/dist/module/lib/constants.js
 var DEFAULT_VERSION = `realtime-js/2.108.2`;
 var VSN_1_0_0 = "1.0.0";
 var VSN_2_0_0 = "2.0.0";
@@ -17861,8 +18058,7 @@ var CONNECTION_STATE = {
 	closing: "closing",
 	closed: "closed"
 };
-//#endregion
-//#region node_modules/@supabase/realtime-js/dist/module/lib/serializer.js
+// node_modules/@supabase/realtime-js/dist/module/lib/serializer.js
 var Serializer = class {
 	constructor(allowedMetadataKeys) {
 		this.HEADER_LENGTH = 1;
@@ -17997,8 +18193,7 @@ var Serializer = class {
 		return Object.fromEntries(Object.entries(obj).filter(([key]) => keys.includes(key)));
 	}
 };
-//#endregion
-//#region node_modules/@supabase/realtime-js/dist/module/lib/transformers.js
+// node_modules/@supabase/realtime-js/dist/module/lib/transformers.js
 /**
 * Helpers to convert the change Payload into native JS types.
 */
@@ -18184,8 +18379,7 @@ var httpEndpointURL = (socketUrl) => {
 	else wsUrl.pathname = wsUrl.pathname + "/api/broadcast";
 	return wsUrl.href;
 };
-//#endregion
-//#region node_modules/@supabase/phoenix/priv/static/phoenix.mjs
+// node_modules/@supabase/phoenix/priv/static/phoenix.mjs
 var closure = (value) => {
 	if (typeof value === "function") return value;
 	else {
@@ -19849,8 +20043,7 @@ var Socket = class {
 		}
 	}
 };
-//#endregion
-//#region node_modules/@supabase/realtime-js/dist/module/phoenix/presenceAdapter.js
+// node_modules/@supabase/realtime-js/dist/module/phoenix/presenceAdapter.js
 var PresenceAdapter = class PresenceAdapter {
 	constructor(channel, opts) {
 		const phoenixOptions = phoenixPresenceOptions(opts);
@@ -19935,8 +20128,7 @@ function phoenixPresenceOptions(opts) {
 function parseCurrentPresences(currentPresences) {
 	return (currentPresences === null || currentPresences === void 0 ? void 0 : currentPresences.metas) ? transformState(currentPresences) : [];
 }
-//#endregion
-//#region node_modules/@supabase/realtime-js/dist/module/RealtimePresence.js
+// node_modules/@supabase/realtime-js/dist/module/RealtimePresence.js
 var REALTIME_PRESENCE_LISTEN_EVENTS;
 (function(REALTIME_PRESENCE_LISTEN_EVENTS) {
 	REALTIME_PRESENCE_LISTEN_EVENTS["SYNC"] = "sync";
@@ -19969,8 +20161,7 @@ var RealtimePresence = class {
 		this.presenceAdapter = new PresenceAdapter(this.channel.channelAdapter, opts);
 	}
 };
-//#endregion
-//#region node_modules/@supabase/realtime-js/dist/module/lib/normalizeChannelError.js
+// node_modules/@supabase/realtime-js/dist/module/lib/normalizeChannelError.js
 /**
 * Normalize the various shapes a channel error reason can take into a real `Error`.
 *
@@ -19992,8 +20183,7 @@ function normalizeChannelError(reason) {
 	}
 	return /* @__PURE__ */ new Error("channel error: connection lost");
 }
-//#endregion
-//#region node_modules/@supabase/realtime-js/dist/module/phoenix/channelAdapter.js
+// node_modules/@supabase/realtime-js/dist/module/phoenix/channelAdapter.js
 var ChannelAdapter = class {
 	constructor(socket, topic, params) {
 		const phoenixParams = phoenixChannelParams(params);
@@ -20095,8 +20285,7 @@ function phoenixChannelParams(options) {
 		private: false
 	}, options.config) };
 }
-//#endregion
-//#region node_modules/@supabase/realtime-js/dist/module/RealtimeChannel.js
+// node_modules/@supabase/realtime-js/dist/module/RealtimeChannel.js
 var REALTIME_POSTGRES_CHANGES_LISTEN_EVENT;
 (function(REALTIME_POSTGRES_CHANGES_LISTEN_EVENT) {
 	REALTIME_POSTGRES_CHANGES_LISTEN_EVENT["ALL"] = "*";
@@ -20690,15 +20879,16 @@ var RealtimeChannel = class RealtimeChannel {
 				"broadcast",
 				"presence",
 				"postgres_changes"
-			].includes(typeLower)) if ("id" in bind) {
-				const bindId = bind.id;
-				const bindEvent = (_b = bind.filter) === null || _b === void 0 ? void 0 : _b.event;
-				return bindId && ((_c = payload.ids) === null || _c === void 0 ? void 0 : _c.includes(bindId)) && (bindEvent === "*" || (bindEvent === null || bindEvent === void 0 ? void 0 : bindEvent.toLocaleLowerCase()) === ((_d = payload.data) === null || _d === void 0 ? void 0 : _d.type.toLocaleLowerCase()));
-			} else {
-				const bindEvent = (_f = (_e = bind === null || bind === void 0 ? void 0 : bind.filter) === null || _e === void 0 ? void 0 : _e.event) === null || _f === void 0 ? void 0 : _f.toLocaleLowerCase();
-				return bindEvent === "*" || bindEvent === ((_g = payload === null || payload === void 0 ? void 0 : payload.event) === null || _g === void 0 ? void 0 : _g.toLocaleLowerCase());
-			}
-			else return bind.type.toLocaleLowerCase() === typeLower;
+			].includes(typeLower)) {
+				if ("id" in bind) {
+					const bindId = bind.id;
+					const bindEvent = (_b = bind.filter) === null || _b === void 0 ? void 0 : _b.event;
+					return bindId && ((_c = payload.ids) === null || _c === void 0 ? void 0 : _c.includes(bindId)) && (bindEvent === "*" || (bindEvent === null || bindEvent === void 0 ? void 0 : bindEvent.toLocaleLowerCase()) === ((_d = payload.data) === null || _d === void 0 ? void 0 : _d.type.toLocaleLowerCase()));
+				} else {
+					const bindEvent = (_f = (_e = bind === null || bind === void 0 ? void 0 : bind.filter) === null || _e === void 0 ? void 0 : _e.event) === null || _f === void 0 ? void 0 : _f.toLocaleLowerCase();
+					return bindEvent === "*" || bindEvent === ((_g = payload === null || payload === void 0 ? void 0 : payload.event) === null || _g === void 0 ? void 0 : _g.toLocaleLowerCase());
+				}
+			} else return bind.type.toLocaleLowerCase() === typeLower;
 		});
 	}
 	/** @internal */
@@ -20753,8 +20943,7 @@ var RealtimeChannel = class RealtimeChannel {
 		return records;
 	}
 };
-//#endregion
-//#region node_modules/@supabase/realtime-js/dist/module/phoenix/socketAdapter.js
+// node_modules/@supabase/realtime-js/dist/module/phoenix/socketAdapter.js
 var SocketAdapter = class {
 	constructor(endPoint, options) {
 		this.socket = new Socket(endPoint, options);
@@ -20862,8 +21051,7 @@ var SocketAdapter = class {
 		return this.socket;
 	}
 };
-//#endregion
-//#region node_modules/@supabase/realtime-js/dist/module/RealtimeClient.js
+// node_modules/@supabase/realtime-js/dist/module/RealtimeClient.js
 var CONNECTION_TIMEOUTS = {
 	HEARTBEAT_INTERVAL: 25e3,
 	RECONNECT_DELAY: 10,
@@ -21467,8 +21655,7 @@ Option 2: Install and provide the "ws" package:
 		if (!this.isConnected()) this.connect();
 	}
 };
-//#endregion
-//#region node_modules/iceberg-js/dist/index.mjs
+// node_modules/iceberg-js/dist/index.mjs
 var IcebergError = class extends Error {
 	constructor(message, opts) {
 		super(message);
@@ -21964,8 +22151,7 @@ var IcebergRestCatalog = class {
 		return this.tableOps.createTableIfNotExists(namespace, request);
 	}
 };
-//#endregion
-//#region node_modules/@supabase/storage-js/dist/index.mjs
+// node_modules/@supabase/storage-js/dist/index.mjs
 function _typeof$1(o) {
 	"@babel/helpers - typeof";
 	return _typeof$1 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o$1) {
@@ -24846,13 +25032,11 @@ var StorageClient = class extends StorageBucketApi {
 		return new StorageAnalyticsClient(this.url + "/iceberg", this.headers, this.fetch);
 	}
 };
-//#endregion
-//#region node_modules/@supabase/auth-js/dist/module/lib/version.js
+// node_modules/@supabase/auth-js/dist/module/lib/version.js
 var version$1 = "2.108.2";
-//#endregion
-//#region node_modules/@supabase/auth-js/dist/module/lib/constants.js
+// node_modules/@supabase/auth-js/dist/module/lib/constants.js
 /** Current session will be checked for refresh at this interval. */
-var AUTO_REFRESH_TICK_DURATION_MS = 30 * 1e3;
+var AUTO_REFRESH_TICK_DURATION_MS = 3e4;
 var EXPIRY_MARGIN_MS = 3 * AUTO_REFRESH_TICK_DURATION_MS;
 /**
 * After a refresh fails, serial callers (including the next auto-refresh
@@ -24871,8 +25055,7 @@ var API_VERSIONS = { "2024-01-01": {
 	name: "2024-01-01"
 } };
 var BASE64URL_REGEX = /^([a-z0-9_-]{4})*($|[a-z0-9_-]{3}$|[a-z0-9_-]{2}$)$/i;
-//#endregion
-//#region node_modules/@supabase/auth-js/dist/module/lib/errors.js
+// node_modules/@supabase/auth-js/dist/module/lib/errors.js
 /**
 * Base error thrown by Supabase Auth helpers.
 *
@@ -25158,8 +25341,7 @@ var AuthInvalidJwtError = class extends CustomAuthError {
 		super(message, "AuthInvalidJwtError", 400, "invalid_jwt");
 	}
 };
-//#endregion
-//#region node_modules/@supabase/auth-js/dist/module/lib/base64url.js
+// node_modules/@supabase/auth-js/dist/module/lib/base64url.js
 /**
 * Avoid modifying this file. It's part of
 * https://github.com/supabase-community/base64url-js.  Submit all fixes on
@@ -25362,8 +25544,7 @@ function bytesToBase64URL(bytes) {
 	byteToBase64URL(null, state, onChar);
 	return result.join("");
 }
-//#endregion
-//#region node_modules/@supabase/auth-js/dist/module/lib/helpers.js
+// node_modules/@supabase/auth-js/dist/module/lib/helpers.js
 function expiresAt(expiresIn) {
 	return Math.round(Date.now() / 1e3) + expiresIn;
 }
@@ -25630,8 +25811,7 @@ function insecureUserWarningProxy(user, suppressWarningRef) {
 function deepClone(obj) {
 	return JSON.parse(JSON.stringify(obj));
 }
-//#endregion
-//#region node_modules/@supabase/auth-js/dist/module/lib/fetch.js
+// node_modules/@supabase/auth-js/dist/module/lib/fetch.js
 var _getErrorMessage = (err) => {
 	if (typeof err === "object" && err !== null) {
 		const e = err;
@@ -25790,15 +25970,13 @@ function _noResolveJsonResponse(data) {
 function hasSession(data) {
 	return !!data.access_token && !!data.refresh_token && !!data.expires_in;
 }
-//#endregion
-//#region node_modules/@supabase/auth-js/dist/module/lib/types.js
+// node_modules/@supabase/auth-js/dist/module/lib/types.js
 var SIGN_OUT_SCOPES = [
 	"global",
 	"local",
 	"others"
 ];
-//#endregion
-//#region node_modules/@supabase/auth-js/dist/module/GoTrueAdminApi.js
+// node_modules/@supabase/auth-js/dist/module/GoTrueAdminApi.js
 var GoTrueAdminApi = class {
 	/**
 	* Creates an admin API client that can be used to manage users and OAuth clients.
@@ -26953,8 +27131,7 @@ var GoTrueAdminApi = class {
 		}
 	}
 };
-//#endregion
-//#region node_modules/@supabase/auth-js/dist/module/lib/local-storage.js
+// node_modules/@supabase/auth-js/dist/module/lib/local-storage.js
 /**
 * Returns a localStorage-like object that stores the key-value pairs in
 * memory.
@@ -26986,8 +27163,7 @@ var LockAcquireTimeoutError = class extends Error {
 		this.isAcquireTimeout = true;
 	}
 };
-//#endregion
-//#region node_modules/@supabase/auth-js/dist/module/lib/polyfills.js
+// node_modules/@supabase/auth-js/dist/module/lib/polyfills.js
 /**
 * https://mathiasbynens.be/notes/globalthis
 */
@@ -27006,8 +27182,7 @@ function polyfillGlobalThis() {
 		if (typeof self !== "undefined") self.globalThis = self;
 	}
 }
-//#endregion
-//#region node_modules/@supabase/auth-js/dist/module/lib/web3/ethereum.js
+// node_modules/@supabase/auth-js/dist/module/lib/web3/ethereum.js
 function getAddress(address) {
 	if (!/^0x[a-fA-F0-9]{40}$/.test(address)) throw new Error(`@supabase/auth-js: Address "${address}" is invalid.`);
 	return address.toLowerCase();
@@ -27047,8 +27222,7 @@ function createSiweMessage(parameters) {
 	}
 	return `${prefix}\n${suffix}`;
 }
-//#endregion
-//#region node_modules/@supabase/auth-js/dist/module/lib/webauthn.errors.js
+// node_modules/@supabase/auth-js/dist/module/lib/webauthn.errors.js
 /**
 * A custom Error used to return a more nuanced error detailing _why_ one of the eight documented
 * errors in the spec was raised after calling `navigator.credentials.create()` or
@@ -27238,8 +27412,7 @@ function identifyAuthenticationError({ error, options }) {
 		cause: error
 	});
 }
-//#endregion
-//#region node_modules/@supabase/auth-js/dist/module/lib/webauthn.js
+// node_modules/@supabase/auth-js/dist/module/lib/webauthn.js
 /**
 * WebAuthn abort service to manage ceremony cancellation.
 * Ensures only one WebAuthn ceremony is active at a time to prevent "operation already in progress" errors.
@@ -27845,8 +28018,7 @@ var WebAuthnApi = class {
 		}
 	}
 };
-//#endregion
-//#region node_modules/@supabase/auth-js/dist/module/GoTrueClient.js
+// node_modules/@supabase/auth-js/dist/module/GoTrueClient.js
 polyfillGlobalThis();
 var DEFAULT_OPTIONS = {
 	url: GOTRUE_URL,
@@ -30184,10 +30356,12 @@ var GoTrueClient = class GoTrueClient {
 			let currentSession = null;
 			const maybeSession = await getItemAsync(this.storage, this.storageKey);
 			this._debug("#getSession()", "session from storage", maybeSession);
-			if (maybeSession !== null) if (this._isValidSession(maybeSession)) currentSession = maybeSession;
-			else {
-				this._debug("#getSession()", "session from storage is not valid");
-				await this._removeSession();
+			if (maybeSession !== null) {
+				if (this._isValidSession(maybeSession)) currentSession = maybeSession;
+				else {
+					this._debug("#getSession()", "session from storage is not valid");
+					await this._removeSession();
+				}
 			}
 			if (!currentSession) return {
 				data: { session: null },
@@ -30903,10 +31077,7 @@ var GoTrueClient = class GoTrueClient {
 				case "implicit":
 					if (this.flowType === "pkce") throw new AuthPKCEGrantCodeExchangeError("Not a valid PKCE flow url.");
 					break;
-				case "pkce":
-					if (this.flowType === "implicit") throw new AuthImplicitGrantRedirectError("Not a valid implicit grant flow url.");
-					break;
-				default:
+				case "pkce": if (this.flowType === "implicit") throw new AuthImplicitGrantRedirectError("Not a valid implicit grant flow url.");
 			}
 			if (callbackUrlType === "pkce") {
 				this._debug("#_initialize()", "begin", "is PKCE flow", true);
@@ -31674,8 +31845,10 @@ var GoTrueClient = class GoTrueClient {
 			if (expiresWithMargin) {
 				if (this.autoRefreshToken && currentSession.refresh_token) {
 					const { error } = await this._callRefreshToken(currentSession.refresh_token);
-					if (error) if (isAuthRefreshDiscardedError(error)) this._debug(debugName, "refresh discarded by commit guard", error);
-					else this._debug(debugName, "refresh failed", error);
+					if (error) {
+						if (isAuthRefreshDiscardedError(error)) this._debug(debugName, "refresh discarded by commit guard", error);
+						else this._debug(debugName, "refresh failed", error);
+					}
 				}
 			} else if (currentSession.user && currentSession.user.__isUserNotAvailableProxy === true) try {
 				const { data, error: userError } = await this._getUser(currentSession.access_token);
@@ -33037,71 +33210,9 @@ var GoTrueClient = class GoTrueClient {
 	}
 };
 GoTrueClient.nextInstanceID = {};
-//#endregion
-//#region node_modules/@supabase/auth-js/dist/module/AuthClient.js
+// node_modules/@supabase/auth-js/dist/module/AuthClient.js
 var AuthClient = GoTrueClient;
-//#endregion
-//#region \0vite/preload-helper.js
-var scriptRel = "modulepreload";
-var assetsURL = function(dep) {
-	return "/app-ichimoku/" + dep;
-};
-var seen = {};
-var __vitePreload = function preload(baseModule, deps, importerUrl) {
-	let promise = Promise.resolve();
-	if (deps && deps.length > 0) {
-		const links = document.getElementsByTagName("link");
-		const cspNonceMeta = document.querySelector("meta[property=csp-nonce]");
-		const cspNonce = cspNonceMeta?.nonce || cspNonceMeta?.getAttribute("nonce");
-		function allSettled(promises) {
-			return Promise.all(promises.map((p) => Promise.resolve(p).then((value) => ({
-				status: "fulfilled",
-				value
-			}), (reason) => ({
-				status: "rejected",
-				reason
-			}))));
-		}
-		promise = allSettled(deps.map((dep) => {
-			dep = assetsURL(dep, importerUrl);
-			if (dep in seen) return;
-			seen[dep] = true;
-			const isCss = dep.endsWith(".css");
-			const cssSelector = isCss ? "[rel=\"stylesheet\"]" : "";
-			if (!!importerUrl) for (let i = links.length - 1; i >= 0; i--) {
-				const link = links[i];
-				if (link.href === dep && (!isCss || link.rel === "stylesheet")) return;
-			}
-			else if (document.querySelector(`link[href="${dep}"]${cssSelector}`)) return;
-			const link = document.createElement("link");
-			link.rel = isCss ? "stylesheet" : scriptRel;
-			if (!isCss) link.as = "script";
-			link.crossOrigin = "";
-			link.href = dep;
-			if (cspNonce) link.setAttribute("nonce", cspNonce);
-			document.head.appendChild(link);
-			if (isCss) return new Promise((res, rej) => {
-				link.addEventListener("load", res);
-				link.addEventListener("error", () => rej(/* @__PURE__ */ new Error(`Unable to preload CSS for ${dep}`)));
-			});
-		}));
-	}
-	function handlePreloadError(err) {
-		const e = new Event("vite:preloadError", { cancelable: true });
-		e.payload = err;
-		window.dispatchEvent(e);
-		if (!e.defaultPrevented) throw err;
-	}
-	return promise.then((res) => {
-		for (const item of res || []) {
-			if (item.status !== "rejected") continue;
-			handlePreloadError(item.reason);
-		}
-		return baseModule().catch(handlePreloadError);
-	});
-};
-//#endregion
-//#region node_modules/@supabase/supabase-js/dist/index.mjs
+// node_modules/@supabase/supabase-js/dist/index.mjs
 var version = "2.108.2";
 var JS_ENV = "";
 var JS_RUNTIME_VERSION;
@@ -33161,12 +33272,12 @@ function __awaiter(thisArg, _arguments, P, generator) {
 var otelModulePromise = null;
 var OTEL_PKG = "@opentelemetry/api";
 function loadOtel() {
-	if (otelModulePromise === null) otelModulePromise = __vitePreload(() => import(
+	if (otelModulePromise === null) otelModulePromise = import(
 		/* webpackIgnore: true */
 		/* turbopackIgnore: true */
 		/* @vite-ignore */
 		OTEL_PKG
-), []).catch(() => null);
+).catch(() => null);
 	return otelModulePromise;
 }
 /**
@@ -33931,12 +34042,10 @@ function shouldShowDeprecationWarning() {
 	return parseInt(versionMatch[1], 10) <= 18;
 }
 if (shouldShowDeprecationWarning()) console.warn("⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217");
-//#endregion
-//#region src/lib/supabase.ts
+// src/lib/supabase.ts
 console.warn("Missing Supabase environment variables. Please check your .env file.");
 var supabase = createClient("https://placeholder-project.supabase.co", "placeholder-anon-key", { db: { schema: "ichimoku" } });
-//#endregion
-//#region src/features/auth/AuthContext.tsx
+// src/features/auth/AuthContext.tsx
 var AuthContext = (0, import_react.createContext)(void 0);
 function AuthProvider({ children }) {
 	const [user, setUser] = (0, import_react.useState)({
@@ -33981,8 +34090,7 @@ function useAuth() {
 	if (context === void 0) throw new Error("useAuth must be used within an AuthProvider");
 	return context;
 }
-//#endregion
-//#region node_modules/clsx/dist/clsx.mjs
+// node_modules/clsx/dist/clsx.mjs
 function r(e) {
 	var t, f, n = "";
 	if ("string" == typeof e || "number" == typeof e) n += e;
@@ -33996,8 +34104,7 @@ function clsx() {
 	for (var e, t, f = 0, n = "", o = arguments.length; f < o; f++) (e = arguments[f]) && (t = r(e)) && (n && (n += " "), n += t);
 	return n;
 }
-//#endregion
-//#region node_modules/class-variance-authority/dist/index.mjs
+// node_modules/class-variance-authority/dist/index.mjs
 /**
 * Copyright 2022 Joe Bell. All rights reserved.
 *
@@ -34049,8 +34156,7 @@ var cva = (base, config) => (props) => {
 		] : acc;
 	}, []), props === null || props === void 0 ? void 0 : props.class, props === null || props === void 0 ? void 0 : props.className);
 };
-//#endregion
-//#region node_modules/@radix-ui/react-compose-refs/dist/index.mjs
+// node_modules/@radix-ui/react-compose-refs/dist/index.mjs
 function setRef$1(ref, value) {
 	if (typeof ref === "function") return ref(value);
 	else if (ref !== null && ref !== void 0) ref.current = value;
@@ -34075,8 +34181,7 @@ function composeRefs(...refs) {
 function useComposedRefs(...refs) {
 	return import_react.useCallback(composeRefs(...refs), refs);
 }
-//#endregion
-//#region node_modules/@radix-ui/react-slot/dist/index.mjs
+// node_modules/@radix-ui/react-slot/dist/index.mjs
 // @__NO_SIDE_EFFECTS__
 function createSlot(ownerName) {
 	const Slot2 = import_react.forwardRef((props, forwardedRef) => {
@@ -34169,8 +34274,7 @@ var createSlottableError = (ownerName) => {
 	return `${ownerName} failed to slot onto its \`Slottable\`. Expected \`Slottable\` to receive a single React element child.`;
 };
 var use = import_react[" use ".trim().toString()];
-//#endregion
-//#region node_modules/@radix-ui/react-primitive/dist/index.mjs
+// node_modules/@radix-ui/react-primitive/dist/index.mjs
 var import_react_dom = /* @__PURE__ */ __toESM(require_react_dom(), 1);
 var Primitive = [
 	"a",
@@ -34210,8 +34314,7 @@ var Primitive = [
 function dispatchDiscreteCustomEvent(target, event) {
 	if (target) import_react_dom.flushSync(() => target.dispatchEvent(event));
 }
-//#endregion
-//#region node_modules/@radix-ui/react-context/dist/index.mjs
+// node_modules/@radix-ui/react-context/dist/index.mjs
 function createContext2(rootComponentName, defaultContext) {
 	const Context = import_react.createContext(defaultContext);
 	Context.displayName = rootComponentName + "Context";
@@ -34302,11 +34405,9 @@ function composeEventHandlers(originalEventHandler, ourEventHandler, { checkForD
 		if (checkForDefaultPrevented === false || !event.defaultPrevented) return ourEventHandler?.(event);
 	};
 }
-//#endregion
-//#region node_modules/@radix-ui/react-use-layout-effect/dist/index.mjs
+// node_modules/@radix-ui/react-use-layout-effect/dist/index.mjs
 var useLayoutEffect2 = globalThis?.document ? import_react.useLayoutEffect : () => {};
-//#endregion
-//#region node_modules/@radix-ui/react-use-controllable-state/dist/index.mjs
+// node_modules/@radix-ui/react-use-controllable-state/dist/index.mjs
 var useInsertionEffect = import_react[" useInsertionEffect ".trim().toString()] || useLayoutEffect2;
 function useControllableState({ prop, defaultProp, onChange = () => {}, caller }) {
 	const [uncontrolledProp, setUncontrolledProp, onChangeRef] = useUncontrolledState({
@@ -34357,8 +34458,7 @@ function useUncontrolledState({ defaultProp, onChange }) {
 function isFunction(value) {
 	return typeof value === "function";
 }
-//#endregion
-//#region node_modules/@radix-ui/react-presence/dist/index.mjs
+// node_modules/@radix-ui/react-presence/dist/index.mjs
 function useStateMachine(initialState, machine) {
 	return import_react.useReducer((state, event) => {
 		return machine[state][event] ?? state;
@@ -34480,8 +34580,7 @@ function getElementRef(element) {
 	if (mayWarn) return element.props.ref;
 	return element.props.ref || element.ref;
 }
-//#endregion
-//#region node_modules/@radix-ui/react-id/dist/index.mjs
+// node_modules/@radix-ui/react-id/dist/index.mjs
 var useReactId = import_react[" useId ".trim().toString()] || (() => void 0);
 var count$1 = 0;
 function useId(deterministicId) {
@@ -34491,8 +34590,7 @@ function useId(deterministicId) {
 	}, [deterministicId]);
 	return deterministicId || (id ? `radix-${id}` : "");
 }
-//#endregion
-//#region node_modules/@radix-ui/react-use-callback-ref/dist/index.mjs
+// node_modules/@radix-ui/react-use-callback-ref/dist/index.mjs
 function useCallbackRef$1(callback) {
 	const callbackRef = import_react.useRef(callback);
 	import_react.useEffect(() => {
@@ -34500,8 +34598,7 @@ function useCallbackRef$1(callback) {
 	});
 	return import_react.useMemo(() => ((...args) => callbackRef.current?.(...args)), []);
 }
-//#endregion
-//#region node_modules/@radix-ui/react-use-escape-keydown/dist/index.mjs
+// node_modules/@radix-ui/react-use-escape-keydown/dist/index.mjs
 function useEscapeKeydown(onEscapeKeyDownProp, ownerDocument = globalThis?.document) {
 	const onEscapeKeyDown = useCallbackRef$1(onEscapeKeyDownProp);
 	import_react.useEffect(() => {
@@ -34512,8 +34609,7 @@ function useEscapeKeydown(onEscapeKeyDownProp, ownerDocument = globalThis?.docum
 		return () => ownerDocument.removeEventListener("keydown", handleKeyDown, { capture: true });
 	}, [onEscapeKeyDown, ownerDocument]);
 }
-//#endregion
-//#region node_modules/@radix-ui/react-dismissable-layer/dist/index.mjs
+// node_modules/@radix-ui/react-dismissable-layer/dist/index.mjs
 var DISMISSABLE_LAYER_NAME = "DismissableLayer";
 var CONTEXT_UPDATE = "dismissableLayer.update";
 var POINTER_DOWN_OUTSIDE = "dismissableLayer.pointerDownOutside";
@@ -34689,8 +34785,7 @@ function handleAndDispatchCustomEvent(name, handler, detail, { discrete }) {
 	if (discrete) dispatchDiscreteCustomEvent(target, event);
 	else target.dispatchEvent(event);
 }
-//#endregion
-//#region node_modules/@radix-ui/react-focus-scope/dist/index.mjs
+// node_modules/@radix-ui/react-focus-scope/dist/index.mjs
 var AUTOFOCUS_ON_MOUNT = "focusScope.autoFocusOnMount";
 var AUTOFOCUS_ON_UNMOUNT = "focusScope.autoFocusOnUnmount";
 var EVENT_OPTIONS = {
@@ -34878,8 +34973,7 @@ function arrayRemove(array, item) {
 function removeLinks(items) {
 	return items.filter((item) => item.tagName !== "A");
 }
-//#endregion
-//#region node_modules/@radix-ui/react-portal/dist/index.mjs
+// node_modules/@radix-ui/react-portal/dist/index.mjs
 var PORTAL_NAME$2 = "Portal";
 var Portal$2 = import_react.forwardRef((props, forwardedRef) => {
 	const { container: containerProp, ...portalProps } = props;
@@ -34892,8 +34986,7 @@ var Portal$2 = import_react.forwardRef((props, forwardedRef) => {
 	}), container) : null;
 });
 Portal$2.displayName = PORTAL_NAME$2;
-//#endregion
-//#region node_modules/@radix-ui/react-focus-guards/dist/index.mjs
+// node_modules/@radix-ui/react-focus-guards/dist/index.mjs
 var count = 0;
 var guards = null;
 function useFocusGuards() {
@@ -34926,8 +35019,7 @@ function createFocusGuard() {
 	element.style.pointerEvents = "none";
 	return element;
 }
-//#endregion
-//#region node_modules/react-remove-scroll-bar/dist/es2015/constants.js
+// node_modules/react-remove-scroll-bar/dist/es2015/constants.js
 var zeroRightClassName = "right-scroll-bar-position";
 var fullWidthClassName = "width-before-scroll-bar";
 var noScrollbarsClassName = "with-scroll-bars-hidden";
@@ -34936,8 +35028,7 @@ var noScrollbarsClassName = "with-scroll-bars-hidden";
 * ! might be undefined ! use will fallback!
 */
 var removedBarSizeVariable = "--removed-body-scroll-bar-size";
-//#endregion
-//#region node_modules/use-callback-ref/dist/es2015/assignRef.js
+// node_modules/use-callback-ref/dist/es2015/assignRef.js
 /**
 * Assigns a value for a given ref, no matter of the ref format
 * @param {RefObject} ref - a callback function or ref object
@@ -34956,8 +35047,7 @@ function assignRef(ref, value) {
 	else if (ref) ref.current = value;
 	return ref;
 }
-//#endregion
-//#region node_modules/use-callback-ref/dist/es2015/useRef.js
+// node_modules/use-callback-ref/dist/es2015/useRef.js
 /**
 * creates a MutableRef with ref change callback
 * @param initialValue - initial ref value
@@ -34994,8 +35084,7 @@ function useCallbackRef(initialValue, callback) {
 	ref.callback = callback;
 	return ref.facade;
 }
-//#endregion
-//#region node_modules/use-callback-ref/dist/es2015/useMergeRef.js
+// node_modules/use-callback-ref/dist/es2015/useMergeRef.js
 var useIsomorphicLayoutEffect$1 = typeof window !== "undefined" ? import_react.useLayoutEffect : import_react.useEffect;
 var currentValues = /* @__PURE__ */ new WeakMap();
 /**
@@ -35035,8 +35124,7 @@ function useMergeRefs(refs, defaultValue) {
 	}, [refs]);
 	return callbackRef;
 }
-//#endregion
-//#region node_modules/use-sidecar/dist/es2015/medium.js
+// node_modules/use-sidecar/dist/es2015/medium.js
 function ItoI(a) {
 	return a;
 }
@@ -35115,8 +35203,7 @@ function createSidecarMedium(options) {
 	}, options);
 	return medium;
 }
-//#endregion
-//#region node_modules/use-sidecar/dist/es2015/exports.js
+// node_modules/use-sidecar/dist/es2015/exports.js
 var SideCar = function(_a) {
 	var sideCar = _a.sideCar, rest = __rest(_a, ["sideCar"]);
 	if (!sideCar) throw new Error("Sidecar: please provide `sideCar` property to import the right car");
@@ -35129,11 +35216,9 @@ function exportSidecar(medium, exported) {
 	medium.useMedium(exported);
 	return SideCar;
 }
-//#endregion
-//#region node_modules/react-remove-scroll/dist/es2015/medium.js
+// node_modules/react-remove-scroll/dist/es2015/medium.js
 var effectCar = createSidecarMedium();
-//#endregion
-//#region node_modules/react-remove-scroll/dist/es2015/UI.js
+// node_modules/react-remove-scroll/dist/es2015/UI.js
 var nothing = function() {};
 /**
 * Removes scrollbar from the page and contain the scroll within the Lock
@@ -35188,15 +35273,10 @@ RemoveScroll.classNames = {
 	fullWidth: fullWidthClassName,
 	zeroRight: zeroRightClassName
 };
-//#endregion
-//#region node_modules/get-nonce/dist/es2015/index.js
-var currentNonce;
 var getNonce = function() {
-	if (currentNonce) return currentNonce;
 	if (typeof __webpack_nonce__ !== "undefined") return __webpack_nonce__;
 };
-//#endregion
-//#region node_modules/react-style-singleton/dist/es2015/singleton.js
+// node_modules/react-style-singleton/dist/es2015/singleton.js
 function makeStyleTag() {
 	if (!document) return null;
 	var tag = document.createElement("style");
@@ -35234,8 +35314,7 @@ var stylesheetSingleton = function() {
 		}
 	};
 };
-//#endregion
-//#region node_modules/react-style-singleton/dist/es2015/hook.js
+// node_modules/react-style-singleton/dist/es2015/hook.js
 /**
 * creates a hook to control style singleton
 * @see {@link styleSingleton} for a safer component version
@@ -35256,8 +35335,7 @@ var styleHookSingleton = function() {
 		}, [styles && isDynamic]);
 	};
 };
-//#endregion
-//#region node_modules/react-style-singleton/dist/es2015/component.js
+// node_modules/react-style-singleton/dist/es2015/component.js
 /**
 * create a Component to add styles on demand
 * - styles are added when first instance is mounted
@@ -35273,8 +35351,7 @@ var styleSingleton = function() {
 	};
 	return Sheet;
 };
-//#endregion
-//#region node_modules/react-remove-scroll-bar/dist/es2015/utils.js
+// node_modules/react-remove-scroll-bar/dist/es2015/utils.js
 var zeroGap = {
 	left: 0,
 	top: 0,
@@ -35308,8 +35385,7 @@ var getGapWidth = function(gapMode) {
 		gap: Math.max(0, windowWidth - documentWidth + offsets[2] - offsets[0])
 	};
 };
-//#endregion
-//#region node_modules/react-remove-scroll-bar/dist/es2015/component.js
+// node_modules/react-remove-scroll-bar/dist/es2015/component.js
 var Style = styleSingleton();
 var lockAttribute = "data-scroll-locked";
 var getStyles = function(_a, allowRelative, gapMode, important) {
@@ -35346,8 +35422,7 @@ var RemoveScrollBar = function(_a) {
 	}, [gapMode]);
 	return import_react.createElement(Style, { styles: getStyles(gap, !noRelative, gapMode, !noImportant ? "!important" : "") });
 };
-//#endregion
-//#region node_modules/react-remove-scroll/dist/es2015/aggresiveCapture.js
+// node_modules/react-remove-scroll/dist/es2015/aggresiveCapture.js
 var passiveSupported = false;
 if (typeof window !== "undefined") try {
 	var options = Object.defineProperty({}, "passive", { get: function() {
@@ -35360,8 +35435,7 @@ if (typeof window !== "undefined") try {
 	passiveSupported = false;
 }
 var nonPassive = passiveSupported ? { passive: false } : false;
-//#endregion
-//#region node_modules/react-remove-scroll/dist/es2015/handleScroll.js
+// node_modules/react-remove-scroll/dist/es2015/handleScroll.js
 var alwaysContainsScroll = function(node) {
 	return node.tagName === "TEXTAREA";
 };
@@ -35443,8 +35517,7 @@ var handleScroll = function(axis, endTarget, event, sourceDelta, noOverscroll) {
 	else if (!isDeltaPositive && (noOverscroll && Math.abs(availableScrollTop) < 1 || !noOverscroll && -delta > availableScrollTop)) shouldCancelScroll = true;
 	return shouldCancelScroll;
 };
-//#endregion
-//#region node_modules/react-remove-scroll/dist/es2015/SideEffect.js
+// node_modules/react-remove-scroll/dist/es2015/SideEffect.js
 var getTouchXY = function(event) {
 	return "changedTouches" in event ? [event.changedTouches[0].clientX, event.changedTouches[0].clientY] : [0, 0];
 };
@@ -35598,11 +35671,9 @@ function getOutermostShadowParent(node) {
 	}
 	return shadowParent;
 }
-//#endregion
-//#region node_modules/react-remove-scroll/dist/es2015/sidecar.js
+// node_modules/react-remove-scroll/dist/es2015/sidecar.js
 var sidecar_default = exportSidecar(effectCar, RemoveScrollSideCar);
-//#endregion
-//#region node_modules/react-remove-scroll/dist/es2015/Combination.js
+// node_modules/react-remove-scroll/dist/es2015/Combination.js
 var ReactRemoveScroll = import_react.forwardRef(function(props, ref) {
 	return import_react.createElement(RemoveScroll, __assign({}, props, {
 		ref,
@@ -35610,8 +35681,7 @@ var ReactRemoveScroll = import_react.forwardRef(function(props, ref) {
 	}));
 });
 ReactRemoveScroll.classNames = RemoveScroll.classNames;
-//#endregion
-//#region node_modules/aria-hidden/dist/es2015/index.js
+// node_modules/aria-hidden/dist/es2015/index.js
 var getDefaultParent = function(originalTarget) {
 	if (typeof document === "undefined") return null;
 	return (Array.isArray(originalTarget) ? originalTarget[0] : originalTarget).ownerDocument.body;
@@ -35716,8 +35786,7 @@ var hideOthers = function(originalTarget, parentNode, markerName) {
 	targets.push.apply(targets, Array.from(activeParentNode.querySelectorAll("[aria-live], script")));
 	return applyAttributeToOthers(targets, activeParentNode, markerName, "aria-hidden");
 };
-//#endregion
-//#region node_modules/@radix-ui/react-dialog/dist/index.mjs
+// node_modules/@radix-ui/react-dialog/dist/index.mjs
 var DIALOG_NAME = "Dialog";
 var [createDialogContext, createDialogScope] = createContextScope(DIALOG_NAME);
 var [DialogProvider, useDialogContext] = createDialogContext(DIALOG_NAME);
@@ -35991,8 +36060,7 @@ var Portal$1 = DialogPortal;
 var Overlay = DialogOverlay;
 var Content$1 = DialogContent;
 var Title = DialogTitle;
-//#endregion
-//#region node_modules/@radix-ui/react-use-size/dist/index.mjs
+// node_modules/@radix-ui/react-use-size/dist/index.mjs
 function useSize(element) {
 	const [size, setSize] = import_react.useState(void 0);
 	useLayoutEffect2(() => {
@@ -36027,8 +36095,7 @@ function useSize(element) {
 	}, [element]);
 	return size;
 }
-//#endregion
-//#region node_modules/@floating-ui/utils/dist/floating-ui.utils.mjs
+// node_modules/@floating-ui/utils/dist/floating-ui.utils.mjs
 /**
 * Custom positioning reference element.
 * @see https://floating-ui.com/docs/virtual-elements
@@ -36156,8 +36223,7 @@ function rectToClientRect(rect) {
 		y
 	};
 }
-//#endregion
-//#region node_modules/@floating-ui/core/dist/floating-ui.core.mjs
+// node_modules/@floating-ui/core/dist/floating-ui.core.mjs
 function computeCoordsFromPlacement(_ref, placement, rtl) {
 	let { reference, floating } = _ref;
 	const sideAxis = getSideAxis(placement);
@@ -36203,9 +36269,7 @@ function computeCoordsFromPlacement(_ref, placement, rtl) {
 		case "start":
 			coords[alignmentAxis] -= commonAlign * (rtl && isVertical ? -1 : 1);
 			break;
-		case "end":
-			coords[alignmentAxis] += commonAlign * (rtl && isVertical ? -1 : 1);
-			break;
+		case "end": coords[alignmentAxis] += commonAlign * (rtl && isVertical ? -1 : 1);
 	}
 	return coords;
 }
@@ -36383,7 +36447,7 @@ var arrow$3 = (options) => ({
 * clipping boundary. Alternative to `autoPlacement`.
 * @see https://floating-ui.com/docs/flip
 */
-var flip$2 = function(options) {
+var flip$1 = function(options) {
 	if (options === void 0) options = {};
 	return {
 		name: "flip",
@@ -36440,9 +36504,7 @@ var flip$2 = function(options) {
 						if (placement) resetPlacement = placement;
 						break;
 					}
-					case "initialPlacement":
-						resetPlacement = initialPlacement;
-						break;
+					case "initialPlacement": resetPlacement = initialPlacement;
 				}
 				if (placement !== resetPlacement) return { reset: { placement: resetPlacement } };
 			}
@@ -36466,7 +36528,7 @@ function isAnySideFullyClipped(overflow) {
 * when it is not in the same clipping context as the reference element.
 * @see https://floating-ui.com/docs/hide
 */
-var hide$2 = function(options) {
+var hide$1 = function(options) {
 	if (options === void 0) options = {};
 	return {
 		name: "hide",
@@ -36535,7 +36597,7 @@ async function convertValueToCoords(state, options) {
 * object may be passed.
 * @see https://floating-ui.com/docs/offset
 */
-var offset$2 = function(options) {
+var offset$1 = function(options) {
 	if (options === void 0) options = 0;
 	return {
 		name: "offset",
@@ -36561,7 +36623,7 @@ var offset$2 = function(options) {
 * keep it in view when it will overflow the clipping boundary.
 * @see https://floating-ui.com/docs/shift
 */
-var shift$2 = function(options) {
+var shift$1 = function(options) {
 	if (options === void 0) options = {};
 	return {
 		name: "shift",
@@ -36620,7 +36682,7 @@ var shift$2 = function(options) {
 /**
 * Built-in `limiter` that will stop `shift()` at a certain point.
 */
-var limitShift$2 = function(options) {
+var limitShift$1 = function(options) {
 	if (options === void 0) options = {};
 	return {
 		options,
@@ -36673,7 +36735,7 @@ var limitShift$2 = function(options) {
 * width of the reference element.
 * @see https://floating-ui.com/docs/size
 */
-var size$2 = function(options) {
+var size$1 = function(options) {
 	if (options === void 0) options = {};
 	return {
 		name: "size",
@@ -36724,8 +36786,7 @@ var size$2 = function(options) {
 		}
 	};
 };
-//#endregion
-//#region node_modules/@floating-ui/utils/dist/floating-ui.utils.dom.mjs
+// node_modules/@floating-ui/utils/dist/floating-ui.utils.dom.mjs
 function hasWindow() {
 	return typeof window !== "undefined";
 }
@@ -36837,8 +36898,7 @@ function getOverflowAncestors(node, list, traverseIframes) {
 function getFrameElement(win) {
 	return win.parent && Object.getPrototypeOf(win.parent) ? win.frameElement : null;
 }
-//#endregion
-//#region node_modules/@floating-ui/dom/dist/floating-ui.dom.mjs
+// node_modules/@floating-ui/dom/dist/floating-ui.dom.mjs
 function getCssDimensions(element) {
 	const css = getComputedStyle$1(element);
 	let width = parseFloat(css.width) || 0;
@@ -36894,9 +36954,11 @@ function getBoundingClientRect(element, includeScale, isFixedStrategy, offsetPar
 	const clientRect = element.getBoundingClientRect();
 	const domElement = unwrapElement(element);
 	let scale = createCoords(1);
-	if (includeScale) if (offsetParent) {
-		if (isElement(offsetParent)) scale = getScale(offsetParent);
-	} else scale = getScale(element);
+	if (includeScale) {
+		if (offsetParent) {
+			if (isElement(offsetParent)) scale = getScale(offsetParent);
+		} else scale = getScale(element);
+	}
 	const visualOffsets = shouldAddVisualOffsets(domElement, isFixedStrategy, offsetParent) ? getVisualOffsets(domElement) : createCoords(0);
 	let x = (clientRect.left + visualOffsets.x) / scale.x;
 	let y = (clientRect.top + visualOffsets.y) / scale.y;
@@ -37310,33 +37372,33 @@ function autoUpdate(reference, floating, update, options) {
 * object may be passed.
 * @see https://floating-ui.com/docs/offset
 */
-var offset$1 = offset$2;
+var offset$2 = offset$1;
 /**
 * Optimizes the visibility of the floating element by shifting it in order to
 * keep it in view when it will overflow the clipping boundary.
 * @see https://floating-ui.com/docs/shift
 */
-var shift$1 = shift$2;
+var shift$2 = shift$1;
 /**
 * Optimizes the visibility of the floating element by flipping the `placement`
 * in order to keep it in view when the preferred placement(s) will overflow the
 * clipping boundary. Alternative to `autoPlacement`.
 * @see https://floating-ui.com/docs/flip
 */
-var flip$1 = flip$2;
+var flip$2 = flip$1;
 /**
 * Provides data that allows you to change the size of the floating element —
 * for instance, prevent it from overflowing the clipping boundary or match the
 * width of the reference element.
 * @see https://floating-ui.com/docs/size
 */
-var size$1 = size$2;
+var size$2 = size$1;
 /**
 * Provides data to hide the floating element in applicable situations, such as
 * when it is not in the same clipping context as the reference element.
 * @see https://floating-ui.com/docs/hide
 */
-var hide$1 = hide$2;
+var hide$2 = hide$1;
 /**
 * Provides data to position an inner element of the floating element so that it
 * appears centered to the reference element.
@@ -37346,7 +37408,7 @@ var arrow$2 = arrow$3;
 /**
 * Built-in `limiter` that will stop `shift()` at a certain point.
 */
-var limitShift$1 = limitShift$2;
+var limitShift$2 = limitShift$1;
 /**
 * Computes the `x` and `y` coordinates that will place the floating element
 * next to a given reference element.
@@ -37366,8 +37428,7 @@ var computePosition = (reference, floating, options) => {
 		platform: platformWithCache
 	});
 };
-//#endregion
-//#region node_modules/@floating-ui/react-dom/dist/floating-ui.react-dom.mjs
+// node_modules/@floating-ui/react-dom/dist/floating-ui.react-dom.mjs
 var index = typeof document !== "undefined" ? import_react.useLayoutEffect : function noop() {};
 function deepEqual(a, b) {
 	if (a === b) return true;
@@ -37596,7 +37657,7 @@ var arrow$1 = (options) => {
 * @see https://floating-ui.com/docs/offset
 */
 var offset = (options, deps) => {
-	const result = offset$1(options);
+	const result = offset$2(options);
 	return {
 		name: result.name,
 		fn: result.fn,
@@ -37609,7 +37670,7 @@ var offset = (options, deps) => {
 * @see https://floating-ui.com/docs/shift
 */
 var shift = (options, deps) => {
-	const result = shift$1(options);
+	const result = shift$2(options);
 	return {
 		name: result.name,
 		fn: result.fn,
@@ -37621,7 +37682,7 @@ var shift = (options, deps) => {
 */
 var limitShift = (options, deps) => {
 	return {
-		fn: limitShift$1(options).fn,
+		fn: limitShift$2(options).fn,
 		options: [options, deps]
 	};
 };
@@ -37632,7 +37693,7 @@ var limitShift = (options, deps) => {
 * @see https://floating-ui.com/docs/flip
 */
 var flip = (options, deps) => {
-	const result = flip$1(options);
+	const result = flip$2(options);
 	return {
 		name: result.name,
 		fn: result.fn,
@@ -37646,7 +37707,7 @@ var flip = (options, deps) => {
 * @see https://floating-ui.com/docs/size
 */
 var size = (options, deps) => {
-	const result = size$1(options);
+	const result = size$2(options);
 	return {
 		name: result.name,
 		fn: result.fn,
@@ -37659,7 +37720,7 @@ var size = (options, deps) => {
 * @see https://floating-ui.com/docs/hide
 */
 var hide = (options, deps) => {
-	const result = hide$1(options);
+	const result = hide$2(options);
 	return {
 		name: result.name,
 		fn: result.fn,
@@ -37680,8 +37741,7 @@ var arrow = (options, deps) => {
 		options: [options, deps]
 	};
 };
-//#endregion
-//#region node_modules/@radix-ui/react-arrow/dist/index.mjs
+// node_modules/@radix-ui/react-arrow/dist/index.mjs
 var NAME = "Arrow";
 var Arrow$1 = import_react.forwardRef((props, forwardedRef) => {
 	const { children, width = 10, height = 5, ...arrowProps } = props;
@@ -37697,8 +37757,7 @@ var Arrow$1 = import_react.forwardRef((props, forwardedRef) => {
 });
 Arrow$1.displayName = NAME;
 var Root = Arrow$1;
-//#endregion
-//#region node_modules/@radix-ui/react-popper/dist/index.mjs
+// node_modules/@radix-ui/react-popper/dist/index.mjs
 var POPPER_NAME = "Popper";
 var [createPopperContext, createPopperScope] = createContextScope(POPPER_NAME);
 var [PopperProvider, usePopperContext] = createPopperContext(POPPER_NAME);
@@ -37961,8 +38020,7 @@ var Root2$1 = Popper;
 var Anchor = PopperAnchor;
 var Content = PopperContent;
 var Arrow = PopperArrow;
-//#endregion
-//#region node_modules/@radix-ui/react-popover/dist/index.mjs
+// node_modules/@radix-ui/react-popover/dist/index.mjs
 var POPOVER_NAME = "Popover";
 var [createPopoverContext, createPopoverScope] = createContextScope(POPOVER_NAME, [createPopperScope]);
 var usePopperScope = createPopperScope();
@@ -38097,7 +38155,8 @@ var PopoverContentModal = import_react.forwardRef((props, forwardedRef) => {
 			onPointerDownOutside: composeEventHandlers(props.onPointerDownOutside, (event) => {
 				const originalEvent = event.detail.originalEvent;
 				const ctrlLeftClick = originalEvent.button === 0 && originalEvent.ctrlKey === true;
-				isRightClickOutsideRef.current = originalEvent.button === 2 || ctrlLeftClick;
+				const isRightClick = originalEvent.button === 2 || ctrlLeftClick;
+				isRightClickOutsideRef.current = isRightClick;
 			}, { checkForDefaultPrevented: false }),
 			onFocusOutside: composeEventHandlers(props.onFocusOutside, (event) => event.preventDefault(), { checkForDefaultPrevented: false })
 		})
@@ -38201,8 +38260,7 @@ var Root2 = Popover;
 var Trigger = PopoverTrigger;
 var Portal = PopoverPortal;
 var Content2 = PopoverContent;
-//#endregion
-//#region node_modules/tailwind-merge/dist/bundle-mjs.mjs
+// node_modules/tailwind-merge/dist/bundle-mjs.mjs
 /**
 * Concatenates two arrays faster than the array spread operator.
 */
@@ -41580,13 +41638,11 @@ var getDefaultConfig = () => {
 	};
 };
 var twMerge = /*#__PURE__*/ createTailwindMerge(getDefaultConfig);
-//#endregion
-//#region src/lib/utils.ts
+// src/lib/utils.ts
 function cn(...inputs) {
 	return twMerge(clsx(inputs));
 }
-//#endregion
-//#region src/components/ui/button.tsx
+// src/components/ui/button.tsx
 var buttonVariants = cva("group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4", {
 	variants: {
 		variant: {
@@ -41614,7 +41670,8 @@ var buttonVariants = cva("group/button inline-flex shrink-0 items-center justify
 	}
 });
 function Button({ className, variant = "default", size = "default", asChild = false, ...props }) {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(asChild ? Slot$2 : "button", {
+	const Comp = asChild ? Slot$2 : "button";
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Comp, {
 		"data-slot": "button",
 		"data-variant": variant,
 		"data-size": size,
@@ -41626,8 +41683,7 @@ function Button({ className, variant = "default", size = "default", asChild = fa
 		...props
 	});
 }
-//#endregion
-//#region node_modules/lucide-react/dist/esm/shared/src/utils/mergeClasses.mjs
+// node_modules/lucide-react/dist/esm/shared/src/utils/mergeClasses.mjs
 /**
 * @license lucide-react v1.18.0 - ISC
 *
@@ -41637,8 +41693,7 @@ function Button({ className, variant = "default", size = "default", asChild = fa
 var mergeClasses = (...classes) => classes.filter((className, index, array) => {
 	return Boolean(className) && className.trim() !== "" && array.indexOf(className) === index;
 }).join(" ").trim();
-//#endregion
-//#region node_modules/lucide-react/dist/esm/shared/src/utils/toKebabCase.mjs
+// node_modules/lucide-react/dist/esm/shared/src/utils/toKebabCase.mjs
 /**
 * @license lucide-react v1.18.0 - ISC
 *
@@ -41646,8 +41701,7 @@ var mergeClasses = (...classes) => classes.filter((className, index, array) => {
 * See the LICENSE file in the root directory of this source tree.
 */
 var toKebabCase = (string) => string.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
-//#endregion
-//#region node_modules/lucide-react/dist/esm/shared/src/utils/toCamelCase.mjs
+// node_modules/lucide-react/dist/esm/shared/src/utils/toCamelCase.mjs
 /**
 * @license lucide-react v1.18.0 - ISC
 *
@@ -41655,8 +41709,7 @@ var toKebabCase = (string) => string.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLo
 * See the LICENSE file in the root directory of this source tree.
 */
 var toCamelCase = (string) => string.replace(/^([A-Z])|[\s-_]+(\w)/g, (match, p1, p2) => p2 ? p2.toUpperCase() : p1.toLowerCase());
-//#endregion
-//#region node_modules/lucide-react/dist/esm/shared/src/utils/toPascalCase.mjs
+// node_modules/lucide-react/dist/esm/shared/src/utils/toPascalCase.mjs
 /**
 * @license lucide-react v1.18.0 - ISC
 *
@@ -41667,8 +41720,7 @@ var toPascalCase = (string) => {
 	const camelCase = toCamelCase(string);
 	return camelCase.charAt(0).toUpperCase() + camelCase.slice(1);
 };
-//#endregion
-//#region node_modules/lucide-react/dist/esm/defaultAttributes.mjs
+// node_modules/lucide-react/dist/esm/defaultAttributes.mjs
 /**
 * @license lucide-react v1.18.0 - ISC
 *
@@ -41686,8 +41738,7 @@ var defaultAttributes$1 = {
 	strokeLinecap: "round",
 	strokeLinejoin: "round"
 };
-//#endregion
-//#region node_modules/lucide-react/dist/esm/shared/src/utils/hasA11yProp.mjs
+// node_modules/lucide-react/dist/esm/shared/src/utils/hasA11yProp.mjs
 /**
 * @license lucide-react v1.18.0 - ISC
 *
@@ -41698,8 +41749,7 @@ var hasA11yProp = (props) => {
 	for (const prop in props) if (prop.startsWith("aria-") || prop === "role" || prop === "title") return true;
 	return false;
 };
-//#endregion
-//#region node_modules/lucide-react/dist/esm/context.mjs
+// node_modules/lucide-react/dist/esm/context.mjs
 /**
 * @license lucide-react v1.18.0 - ISC
 *
@@ -41708,8 +41758,7 @@ var hasA11yProp = (props) => {
 */
 var LucideContext = (0, import_react.createContext)({});
 var useLucideContext = () => (0, import_react.useContext)(LucideContext);
-//#endregion
-//#region node_modules/lucide-react/dist/esm/Icon.mjs
+// node_modules/lucide-react/dist/esm/Icon.mjs
 /**
 * @license lucide-react v1.18.0 - ISC
 *
@@ -41731,8 +41780,7 @@ var Icon = (0, import_react.forwardRef)(({ color, size, strokeWidth, absoluteStr
 		...rest
 	}, [...iconNode.map(([tag, attrs]) => (0, import_react.createElement)(tag, attrs)), ...Array.isArray(children) ? children : [children]]);
 });
-//#endregion
-//#region node_modules/lucide-react/dist/esm/createLucideIcon.mjs
+// node_modules/lucide-react/dist/esm/createLucideIcon.mjs
 /**
 * @license lucide-react v1.18.0 - ISC
 *
@@ -42264,8 +42312,7 @@ var X = createLucideIcon("x", [["path", {
 	d: "m6 6 12 12",
 	key: "d8bk6v"
 }]]);
-//#endregion
-//#region src/features/auth/AuthScreen.tsx
+// src/features/auth/AuthScreen.tsx
 function AuthScreen() {
 	const { signInMock } = useAuth();
 	const [mode, setMode] = (0, import_react.useState)("signin");
@@ -42380,8 +42427,7 @@ function AuthScreen() {
 		})
 	});
 }
-//#endregion
-//#region src/lib/order.ts
+// src/lib/order.ts
 /**
 * 並び順キー（fractional index）の生成ユーティリティ。
 *
@@ -42429,8 +42475,7 @@ function keyAfter(a) {
 function keyBefore(b) {
 	return keyBetween(null, b);
 }
-//#endregion
-//#region src/lib/calendar.ts
+// src/lib/calendar.ts
 var WD$1 = [
 	"日",
 	"月",
@@ -42481,8 +42526,7 @@ function startOfWeek(d) {
 function formatTime(d) {
 	return `${d.getHours()}:${pad(d.getMinutes())}`;
 }
-//#endregion
-//#region src/store/mockData.ts
+// src/store/mockData.ts
 /**
 * プレビュー（目視チェック）用のモックデータ。
 *
@@ -43034,8 +43078,7 @@ var MOCK_SHIFTS = [
 		shiftTypeId: ST_SHIBUYA
 	}
 ];
-//#endregion
-//#region src/store/AppDataContext.tsx
+// src/store/AppDataContext.tsx
 /**
 * AppDataContext — アプリの全データソース（Supabase + TanStack Query）。
 *
@@ -43054,7 +43097,7 @@ var MOCK_SHIFTS = [
 function nowIso() {
 	return (/* @__PURE__ */ new Date()).toISOString();
 }
-var PURGE_AFTER_MS = 720 * 60 * 60 * 1e3;
+var PURGE_AFTER_MS = 2592e6;
 function newId() {
 	return crypto.randomUUID();
 }
@@ -43628,8 +43671,7 @@ function useAppData() {
 	if (!ctx) throw new Error("useAppData は AppDataProvider 内で使用してください");
 	return ctx;
 }
-//#endregion
-//#region src/store/OverlayContext.tsx
+// src/store/OverlayContext.tsx
 var OverlayContext = (0, import_react.createContext)(void 0);
 function OverlayProvider({ children }) {
 	const [active, setActive] = (0, import_react.useState)({ kind: "none" });
@@ -43687,8 +43729,7 @@ function useOverlay() {
 	if (!ctx) throw new Error("useOverlay は OverlayProvider 内で使用してください");
 	return ctx;
 }
-//#endregion
-//#region src/components/overlay/SidePeek.tsx
+// src/components/overlay/SidePeek.tsx
 function SidePeek({ open, onOpenChange, label, children }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$1, {
 		open,
@@ -43702,8 +43743,7 @@ function SidePeek({ open, onOpenChange, label, children }) {
 		})] })
 	});
 }
-//#endregion
-//#region node_modules/@dnd-kit/utilities/dist/utilities.esm.js
+// node_modules/@dnd-kit/utilities/dist/utilities.esm.js
 function useCombinedRefs() {
 	for (var _len = arguments.length, refs = new Array(_len), _key = 0; _key < _len; _key++) refs[_key] = arguments[_key];
 	return (0, import_react.useMemo)(() => (node) => {
@@ -43888,8 +43928,7 @@ function findFirstFocusableNode(element) {
 	if (element.matches(SELECTOR)) return element;
 	return element.querySelector(SELECTOR);
 }
-//#endregion
-//#region node_modules/@dnd-kit/accessibility/dist/accessibility.esm.js
+// node_modules/@dnd-kit/accessibility/dist/accessibility.esm.js
 var hiddenStyles = { display: "none" };
 function HiddenText(_ref) {
 	let { id, value } = _ref;
@@ -43930,8 +43969,7 @@ function useAnnouncement() {
 		announcement
 	};
 }
-//#endregion
-//#region node_modules/@dnd-kit/core/dist/core.esm.js
+// node_modules/@dnd-kit/core/dist/core.esm.js
 var DndMonitorContext = /*#__PURE__*/ (0, import_react.createContext)(null);
 function useDndMonitor(listener) {
 	const registerListener = (0, import_react.useContext)(DndMonitorContext);
@@ -45045,7 +45083,8 @@ function useAutoScroller(_ref) {
 		}
 		for (const scrollContainer of sortedScrollableAncestors) {
 			if ((canScroll == null ? void 0 : canScroll(scrollContainer)) === false) continue;
-			const scrollContainerRect = scrollableAncestorRects[scrollableAncestors.indexOf(scrollContainer)];
+			const index = scrollableAncestors.indexOf(scrollContainer);
+			const scrollContainerRect = scrollableAncestorRects[index];
 			if (!scrollContainerRect) continue;
 			const { direction, speed } = getScrollDirectionAndSpeed(scrollContainer, scrollContainerRect, rect, acceleration, threshold);
 			for (const axis of ["x", "y"]) if (!scrollIntent[axis][direction[axis]]) {
@@ -45865,7 +45904,7 @@ var DndContext = /*#__PURE__*/ (0, import_react.memo)(function DndContext(_ref) 
 		const activeNode = draggableNodes.get(activeRef.current);
 		if (!activeNode) return;
 		const activatorEvent = event.nativeEvent;
-		activeSensorRef.current = new Sensor({
+		const sensorInstance = new Sensor({
 			active: activeRef.current,
 			activeNode,
 			event: activatorEvent,
@@ -45935,6 +45974,7 @@ var DndContext = /*#__PURE__*/ (0, import_react.memo)(function DndContext(_ref) 
 			onEnd: createHandler(Action.DragEnd),
 			onCancel: createHandler(Action.DragCancel)
 		});
+		activeSensorRef.current = sensorInstance;
 		function createHandler(type) {
 			return async function handler() {
 				const { active, collisions, over, scrollAdjustedTranslate } = sensorContext.current;
@@ -46163,10 +46203,10 @@ var DndContext = /*#__PURE__*/ (0, import_react.memo)(function DndContext(_ref) 
 });
 var NullContext = /*#__PURE__*/ (0, import_react.createContext)(null);
 var defaultRole = "button";
-var ID_PREFIX$1 = "Draggable";
+var ID_PREFIX$2 = "Draggable";
 function useDraggable(_ref) {
 	let { id, data, disabled = false, attributes } = _ref;
-	const key = useUniqueId(ID_PREFIX$1);
+	const key = useUniqueId(ID_PREFIX$2);
 	const { activators, activatorEvent, active, activeNodeRect, ariaDescribedById, draggableNodes, over } = (0, import_react.useContext)(InternalContext);
 	const { role = defaultRole, roleDescription = "draggable", tabIndex = 0 } = attributes != null ? attributes : {};
 	const isDragging = (active == null ? void 0 : active.id) === id;
@@ -46219,11 +46259,11 @@ function useDraggable(_ref) {
 function useDndContext() {
 	return (0, import_react.useContext)(PublicContext);
 }
-var ID_PREFIX$1$1 = "Droppable";
+var ID_PREFIX$1 = "Droppable";
 var defaultResizeObserverConfig = { timeout: 25 };
 function useDroppable(_ref) {
 	let { data, disabled = false, id, resizeObserverConfig } = _ref;
-	const key = useUniqueId(ID_PREFIX$1$1);
+	const key = useUniqueId(ID_PREFIX$1);
 	const { active, dispatch, over, measureDroppableContainers } = (0, import_react.useContext)(InternalContext);
 	const previous = (0, import_react.useRef)({ disabled });
 	const resizeObserverConnected = (0, import_react.useRef)(false);
@@ -46537,8 +46577,7 @@ var DragOverlay = /*#__PURE__*/ import_react.memo((_ref) => {
 		transform: modifiedTransform
 	}, children) : null));
 });
-//#endregion
-//#region node_modules/@dnd-kit/sortable/dist/sortable.esm.js
+// node_modules/@dnd-kit/sortable/dist/sortable.esm.js
 /**
 * Move an array item to a different position. Returns a new array with the item moved to the new position.
 */
@@ -46889,8 +46928,7 @@ function normalizeLocalDisabled(localDisabled, globalDisabled) {
 	};
 }
 KeyboardCode.Down, KeyboardCode.Right, KeyboardCode.Up, KeyboardCode.Left;
-//#endregion
-//#region src/features/board/BoardCell.tsx
+// src/features/board/BoardCell.tsx
 /**
 * セル ID 生成: `${カテゴリキー}__cell`（カテゴリキー uncat = 未分類）。
 * 画面構成見直しで状態列を廃止したため、ドロップ先はカテゴリ単位の単一リスト。
@@ -46920,14 +46958,12 @@ function BoardCell({ id, children, isEmpty, itemIds, grid, gridCols = 3 }) {
 		}) : null]
 	});
 }
-//#endregion
-//#region src/lib/types.ts
+// src/lib/types.ts
 /** `doing` を「対応中フラグが立っている」とみなすヘルパー（案B）。 */
 function isFlagged(status) {
 	return status === "doing";
 }
-//#endregion
-//#region src/features/board/HighlightContext.tsx
+// src/features/board/HighlightContext.tsx
 var Ctx = (0, import_react.createContext)(null);
 function HighlightProvider({ children }) {
 	const [highlightId, setHighlightId] = (0, import_react.useState)(null);
@@ -46948,8 +46984,7 @@ function useHighlight() {
 	if (!ctx) throw new Error("useHighlight は HighlightProvider 内で使ってください");
 	return ctx;
 }
-//#endregion
-//#region src/lib/date.ts
+// src/lib/date.ts
 /**
 * 日付ユーティリティ（締切は日付のみ 'YYYY-MM-DD'）。
 * モックの基準日。Supabase 配線時は実日付に置き換える。
@@ -47010,8 +47045,7 @@ function urgencyClasses(u) {
 		};
 	}
 }
-//#endregion
-//#region src/features/board/TaskCard.tsx
+// src/features/board/TaskCard.tsx
 /** 締切チップ（カード内・締切レーンで共用）。時刻があれば併記する。 */
 function DueChip({ dueDate, dueTime }) {
 	const uc = urgencyClasses(dueUrgency(dueDate));
@@ -47093,8 +47127,7 @@ function TaskCard({ task }) {
 		]
 	});
 }
-//#endregion
-//#region src/features/board/CompleteZone.tsx
+// src/features/board/CompleteZone.tsx
 /** 完了ドロップゾーンの droppable id（cellId と衝突しない固定値） */
 var DONE_ZONE_ID = "complete-zone";
 /**
@@ -47131,8 +47164,7 @@ function CompleteZone({ onOpenHistory }) {
 		})
 	});
 }
-//#endregion
-//#region src/features/board/UndoToast.tsx
+// src/features/board/UndoToast.tsx
 /**
 * 完了直後の取り消しトースト。完了＝即アーカイブで DB から消える設計のため、
 * 誤ドロップ救済として数秒だけ「取り消す」を提示する（消えても履歴から戻せる）。
@@ -47168,8 +47200,7 @@ function UndoToast({ title, onUndo, onDismiss }) {
 		})
 	});
 }
-//#endregion
-//#region src/features/board/BoardDndProvider.tsx
+// src/features/board/BoardDndProvider.tsx
 var UNCAT_KEY$1 = "uncat";
 /** 完了トーストの表示時間（ミリ秒） */
 var TOAST_MS = 5e3;
@@ -47344,7 +47375,8 @@ function BoardDndProvider({ children }) {
 				setCatOverride(null);
 				return;
 			}
-			moveCategoryBefore(activeCatId, pos + 1 < order.length ? order[pos + 1] : null);
+			const beforeId = pos + 1 < order.length ? order[pos + 1] : null;
+			moveCategoryBefore(activeCatId, beforeId);
 			return;
 		}
 		if (activeKey.startsWith("deadline:")) {
@@ -47477,8 +47509,7 @@ function resolveColor(stored, index) {
 function tint(color, percent) {
 	return `color-mix(in srgb, ${color} ${percent}%, transparent)`;
 }
-//#endregion
-//#region src/features/board/Lane.tsx
+// src/features/board/Lane.tsx
 /**
 * カテゴリ 1 まとまり。状態列は廃止し、カテゴリごとの単一リスト。
 * 「対応中」は列ではなくカード上の★フラグで表す（案B）。折りたたみ可。
@@ -47547,8 +47578,7 @@ function Lane({ categoryKey, name, color, tasks, collapsed, onToggle, muted, var
 		}), body]
 	});
 }
-//#endregion
-//#region src/features/board/Board.tsx
+// src/features/board/Board.tsx
 var UNCAT_KEY = "uncat";
 /** カテゴリ列の最小幅（px）。これを下回らない範囲で最大 MAX_COLS 列まで詰める。
 画面を縮小（ズームアウト）して枠幅が広がると、ボードはこの範囲で列が増えて広がる。 */
@@ -47641,7 +47671,8 @@ function Board() {
 						size: "sm",
 						className: "shrink-0",
 						onClick: () => {
-							openTaskDraft(addTask({ title: "" }));
+							const id = addTask({ title: "" });
+							openTaskDraft(id);
 						},
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, {}), "タスク"]
 					}),
@@ -47691,8 +47722,7 @@ function Board() {
 		]
 	});
 }
-//#endregion
-//#region src/lib/holidays.ts
+// src/lib/holidays.ts
 /**
 * 日本の祝日判定（外部依存なし・自前計算）。
 *
@@ -47770,8 +47800,7 @@ function holidaySet(year) {
 function isHoliday(date) {
 	return holidaySet(date.getFullYear()).has(key(date.getFullYear(), date.getMonth() + 1, date.getDate()));
 }
-//#endregion
-//#region src/components/overlay/AnchoredPopover.tsx
+// src/components/overlay/AnchoredPopover.tsx
 function AnchoredPopover({ open, onOpenChange, trigger, children, title, align = "end", className }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Root2, {
 		open,
@@ -47790,8 +47819,7 @@ function AnchoredPopover({ open, onOpenChange, trigger, children, title, align =
 		}) })]
 	});
 }
-//#endregion
-//#region src/features/shifts/ShiftChip.tsx
+// src/features/shifts/ShiftChip.tsx
 /**
 * その日のシフト（勤務地）を表す色付きチップ＋選択ポップオーバー。
 * クリックでマスタ（shiftTypes）から選択、または解除。予定とは別概念の日次ラベル。
@@ -47804,27 +47832,28 @@ function ShiftChip({ shiftTypes, currentId, onSelect, onManage }) {
 		onSelect(id);
 		setOpen(false);
 	};
+	const trigger = current ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+		type: "button",
+		title: "勤務地を変更",
+		className: "inline-flex max-w-full min-w-0 cursor-pointer items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-medium",
+		style: {
+			borderColor: tint(resolveColor(current.color, currentIdx), 40),
+			backgroundColor: tint(resolveColor(current.color, currentIdx), 12)
+		},
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+			className: "min-w-0 truncate",
+			children: current.name
+		})
+	}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+		type: "button",
+		title: "勤務地を設定",
+		className: "inline-flex max-w-full cursor-pointer items-center gap-0.5 rounded-full border border-dashed border-border px-2 py-0.5 text-[11px] text-ink-3 transition-colors hover:border-input hover:text-muted-foreground",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { className: "size-3" }), "勤務地"]
+	});
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AnchoredPopover, {
 		open,
 		onOpenChange: setOpen,
-		trigger: current ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-			type: "button",
-			title: "勤務地を変更",
-			className: "inline-flex max-w-full min-w-0 cursor-pointer items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-medium",
-			style: {
-				borderColor: tint(resolveColor(current.color, currentIdx), 40),
-				backgroundColor: tint(resolveColor(current.color, currentIdx), 12)
-			},
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-				className: "min-w-0 truncate",
-				children: current.name
-			})
-		}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-			type: "button",
-			title: "勤務地を設定",
-			className: "inline-flex max-w-full cursor-pointer items-center gap-0.5 rounded-full border border-dashed border-border px-2 py-0.5 text-[11px] text-ink-3 transition-colors hover:border-input hover:text-muted-foreground",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { className: "size-3" }), "勤務地"]
-		}),
+		trigger,
 		title: "勤務地",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "flex flex-col gap-0.5",
@@ -47870,8 +47899,7 @@ function ShiftChip({ shiftTypes, currentId, onSelect, onManage }) {
 		})]
 	});
 }
-//#endregion
-//#region src/features/calendar/Agenda.tsx
+// src/features/calendar/Agenda.tsx
 /** 複数日にまたぐ予定の、指定日における時刻ラベル */
 function timedLabel(e, dy) {
 	const s = parseIso(e.startAt);
@@ -48107,8 +48135,7 @@ function Agenda({ events, tasks, shiftTypes, shifts, todayYmd, onOpenEvent, onOp
 		]
 	});
 }
-//#endregion
-//#region src/features/calendar/Calendar.tsx
+// src/features/calendar/Calendar.tsx
 /**
 * カレンダー（予定専用）。週/日の切替・時間グリッドは廃止し、無限スクロールのアジェンダに一本化。
 * 仕様 §3.5: 連続した日次リストで予定を確認する。各日にシフト（勤務地）チップを併置。
@@ -48165,8 +48192,7 @@ function Calendar() {
 		}, agendaKey)]
 	});
 }
-//#endregion
-//#region src/features/deadlines/DeadlineRail.tsx
+// src/features/deadlines/DeadlineRail.tsx
 /** 近日締切カード（ドラッグで完了ゾーンへ・クリックで詳細・ホバーで連動ハイライト）。
 ボード／カレンダーの該当タスクにホバーされた際は、このカードもハイライトする（双方向）。 */
 function DeadlineCard({ task }) {
@@ -48261,8 +48287,7 @@ for (let m = 0; m < 1440; m += 15) TIME_OPTIONS.push({
 	value: minToHHMM(m),
 	label: `${Math.floor(m / 60)}:${pad2(m % 60)}`
 });
-//#endregion
-//#region src/features/_shared/panel.tsx
+// src/features/_shared/panel.tsx
 /**
 * side-peek 詳細パネルの共通 UI 部品。
 * タスク・予定の追加/編集はすべてこの枠を共有し、見た目と操作（自動保存・閉じる）を統一する。
@@ -48415,8 +48440,7 @@ function PanelShell({ label, saved, onClose, children, footer }) {
 		]
 	});
 }
-//#endregion
-//#region src/features/tasks/TaskDetailPanel.tsx
+// src/features/tasks/TaskDetailPanel.tsx
 /**
 * 入力 URL を開ける形に正規化する。`http(s)://` 省略時は `https://` を補い、
 * クリックで開ける href を返す。開けない（空など）場合は null。
@@ -48446,10 +48470,11 @@ function TaskDetailPanel({ taskId, onClose }) {
 		flash();
 	};
 	const setLink = (index, key, value) => {
-		patch({ links: task.links.map((l, i) => i === index ? {
+		const links = task.links.map((l, i) => i === index ? {
 			...l,
 			[key]: value
-		} : l) });
+		} : l);
+		patch({ links });
 	};
 	const addLink = () => patch({ links: [...task.links, {
 		title: "",
@@ -48483,19 +48508,20 @@ function TaskDetailPanel({ taskId, onClose }) {
 		},
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Trash2, { className: "size-3.5" }), " 削除"]
 	})] }) });
+	const footer = /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+		className: "text-[11px] text-ink-3",
+		children: [
+			"作成 ",
+			fmtDateTime(task.createdAt),
+			" ・ 更新 ",
+			fmtDateTime(task.updatedAt)
+		]
+	});
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PanelShell, {
 		label: "タスク",
 		saved,
 		onClose,
-		footer: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-			className: "text-[11px] text-ink-3",
-			children: [
-				"作成 ",
-				fmtDateTime(task.createdAt),
-				" ・ 更新 ",
-				fmtDateTime(task.updatedAt)
-			]
-		}),
+		footer,
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AutoInput, {
 				value: task.title,
@@ -48640,8 +48666,7 @@ function TaskDetailPanel({ taskId, onClose }) {
 		]
 	});
 }
-//#endregion
-//#region src/features/tasks/CompletedHistory.tsx
+// src/features/tasks/CompletedHistory.tsx
 function fmtDate(iso) {
 	const d = new Date(iso);
 	return `${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
@@ -48695,8 +48720,7 @@ function CompletedHistory({ onClose }) {
 		})
 	});
 }
-//#endregion
-//#region src/features/_shared/ColorPicker.tsx
+// src/features/_shared/ColorPicker.tsx
 /**
 * 分類色ピッカー（カテゴリ・勤務地で共通）。
 * テーマパレットの 6 スロット＋「自動」から選ぶだけ。自由 hex は扱わない
@@ -48727,8 +48751,7 @@ function ColorPicker({ value, onChange }) {
 		})]
 	});
 }
-//#endregion
-//#region src/features/_shared/ManageListPanel.tsx
+// src/features/_shared/ManageListPanel.tsx
 /**
 * カテゴリ・勤務地など、同じ操作体系のマスタ管理パネル。
 * 追加 / リネーム / 色選択 / 並べ替え / 削除の見た目と実装をここに集約する。
@@ -48816,8 +48839,7 @@ function ManageListPanel({ label, addPlaceholder, emptyMessage, footer, items, o
 		})]
 	});
 }
-//#endregion
-//#region src/features/categories/CategoryManager.tsx
+// src/features/categories/CategoryManager.tsx
 /** カテゴリ管理（side-peek・共通枠）。作成・リネーム・並べ替え・削除。 */
 function CategoryManager({ onClose }) {
 	const { categories, addCategory, renameCategory, deleteCategory, reorderCategory, setCategoryColor } = useAppData();
@@ -48835,8 +48857,7 @@ function CategoryManager({ onClose }) {
 		onClose
 	});
 }
-//#endregion
-//#region src/components/ui/switch.tsx
+// src/components/ui/switch.tsx
 /**
 * ラベル付きの ON/OFF トグルスイッチ。
 * ボタンの押下色での状態表現より、つまみの位置で状態が一目で分かる直感操作を狙う部品。
@@ -48861,8 +48882,7 @@ function Switch({ checked, onCheckedChange, label, className, ...props }) {
 		})]
 	});
 }
-//#endregion
-//#region src/features/calendar/MiniRangeCalendar.tsx
+// src/features/calendar/MiniRangeCalendar.tsx
 var WD = [
 	"日",
 	"月",
@@ -49002,8 +49022,7 @@ function MiniRangeCalendar({ value, onChange, todayYmd }) {
 		]
 	});
 }
-//#endregion
-//#region src/features/calendar/EventDetailPanel.tsx
+// src/features/calendar/EventDetailPanel.tsx
 /**
 * 予定の新規登録 / 編集（side-peek・保存ボタン式 = option B）。
 *
@@ -49057,7 +49076,10 @@ function EventDetailPanel({ eventId, initialDate, onClose }) {
 	const endOptions = sameDay ? TIME_OPTIONS.filter((o) => hhmmToMin(o.value) > hhmmToMin(startTime)) : TIME_OPTIONS;
 	const onChangeStart = (v) => {
 		setStartTime(v);
-		if (sameDay && hhmmToMin(endTime) <= hhmmToMin(v)) setEndTime(minToHHMM(Math.min(hhmmToMin(v) + 15, 1425)));
+		if (sameDay && hhmmToMin(endTime) <= hhmmToMin(v)) {
+			const next = Math.min(hhmmToMin(v) + 15, 1425);
+			setEndTime(minToHHMM(next));
+		}
 	};
 	const timeValid = allDay || !!startTime && !!endTime && (!sameDay || hhmmToMin(endTime) > hhmmToMin(startTime));
 	const canSave = title.trim() !== "" && timeValid;
@@ -49201,8 +49223,7 @@ function EventDetailPanel({ eventId, initialDate, onClose }) {
 		]
 	});
 }
-//#endregion
-//#region src/features/shifts/ShiftManager.tsx
+// src/features/shifts/ShiftManager.tsx
 /** 勤務地（シフト種別）管理。作成・リネーム・色変更・並べ替え・削除。カテゴリ管理と同型。 */
 function ShiftManager({ onClose }) {
 	const { shiftTypes, addShiftType, updateShiftType, deleteShiftType, reorderShiftType } = useAppData();
@@ -49220,8 +49241,7 @@ function ShiftManager({ onClose }) {
 		onClose
 	});
 }
-//#endregion
-//#region src/components/layout/AppShell.tsx
+// src/components/layout/AppShell.tsx
 /**
 * AppShell — 1画面・遷移ゼロのベースレイアウト（仕様 §7 / §3.7）。
 * トップバー＋3カラム（近日締切｜タスクボード｜カレンダー）を固定配置し、
@@ -49301,8 +49321,7 @@ function AppShell() {
 		]
 	});
 }
-//#endregion
-//#region src/App.tsx
+// src/App.tsx
 function App() {
 	const { user, loading } = useAuth();
 	if (loading) return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -49315,8 +49334,7 @@ function App() {
 	if (!user) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AuthScreen, {});
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AppShell, {});
 }
-//#endregion
-//#region src/main.tsx
+// src/main.tsx
 var queryClient = new QueryClient({ defaultOptions: { queries: {
 	staleTime: 3e4,
 	refetchOnWindowFocus: false
@@ -49325,4 +49343,3 @@ var queryClient = new QueryClient({ defaultOptions: { queries: {
 	client: queryClient,
 	children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AuthProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AppDataProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(OverlayProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(App, {}) }) }) })
 }) }));
-//#endregion
