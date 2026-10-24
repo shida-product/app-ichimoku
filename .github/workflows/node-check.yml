@@ -1,0 +1,24 @@
+name: Node.js セキュリティ更新の検証
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4 (deploy.yml と同じ major)
+        with:
+          node-version: '24.22.1'
+          cache: 'npm'
+      - run: node --version
+      - run: npm ci
+      - run: npm run build
